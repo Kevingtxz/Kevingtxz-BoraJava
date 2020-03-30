@@ -32,7 +32,7 @@ public class Event implements Serializable {
 	@JoinColumn(name = "address_id")
 	private Address address;
 	
-
+	@JsonIgnore
 	@OneToOne
 	private MPEvent mPEvent;
 

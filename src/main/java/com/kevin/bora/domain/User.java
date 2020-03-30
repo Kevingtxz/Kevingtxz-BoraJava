@@ -45,6 +45,7 @@ public class User implements Serializable{
 	@JoinColumn(name="address_id")
 	private Address address;
 
+	@JsonIgnore
 	@OneToOne
 	private MPUser mPUser;
 
