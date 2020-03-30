@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -20,18 +20,22 @@ public class EventUsers implements Serializable {
 	private Integer id;
 	
 	@OneToOne
-	private MPEvent event;
+	private MPEvent mPEvent;
 	
-	@ManyToMany
-	private List<User> users = new ArrayList<>();
+	@OneToMany(mappedBy="eventUsers")
+	private List<EventUser> EventUserList = new ArrayList<>();
+	
+	@OneToOne
+	private Chat chatEvent;
 	
 	public EventUsers() {
 	}
 
-	public EventUsers(Integer id, MPEvent event) {
+	public EventUsers(Integer id, MPEvent mPEvent, Chat chatEvent) {
 		super();
 		this.id = id;
-		this.event = event;
+		this.mPEvent = mPEvent;
+		this.chatEvent = chatEvent;
 	}
 
 	public Integer getId() {
@@ -42,20 +46,36 @@ public class EventUsers implements Serializable {
 		this.id = id;
 	}
 
-	public MPEvent getEvent() {
-		return event;
+	public MPEvent getMPEvent() {
+		return mPEvent;
 	}
 
-	public void setEvent(MPEvent event) {
-		this.event = event;
+	public void setMPEvent(MPEvent mPEvent) {
+		this.mPEvent = mPEvent;
 	}
 
-	public List<User> getUsers() {
-		return users;
+	public List<EventUser> getEventUserList() {
+		return EventUserList;
 	}
 
-	public void setUsers(List<User> users) {
-		this.users = users;
+	public void setEventUserList(List<EventUser> eventUserList) {
+		EventUserList = eventUserList;
+	}
+
+	public Chat getChatEvent() {
+		return chatEvent;
+	}
+
+	public void setChatEvent(Chat chatEvent) {
+		this.chatEvent = chatEvent;
+	}
+
+	public MPEvent getmPEvent() {
+		return mPEvent;
+	}
+
+	public void setmPEvent(MPEvent mPEvent) {
+		this.mPEvent = mPEvent;
 	}
 
 	@Override

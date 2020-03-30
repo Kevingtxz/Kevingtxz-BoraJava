@@ -13,6 +13,9 @@ public class MPEvent extends MainPage{
 
 	@OneToOne(mappedBy="mPEvent", cascade=CascadeType.ALL)
 	private Event event;
+	
+	@OneToOne(mappedBy="mPEvent", cascade=CascadeType.ALL)
+	private EventUsers eventUsers;
 
 	public MPEvent() {
 	}

@@ -8,9 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Chat implements Serializable{
@@ -20,13 +20,14 @@ public class Chat implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 
-	@JoinColumn(name="CHAT_MAIN_PAGES")
 	@ManyToMany
 	private List<MainPage> mainPages = new ArrayList<>();
 
-	@JoinColumn(name="message")
 	@OneToMany
 	private List<Message> messages = new ArrayList<>();
+	
+	@OneToOne(mappedBy="chatEvent")
+	EventUsers eventUsers;
 	
 	public Chat() {
 	}
@@ -58,6 +59,14 @@ public class Chat implements Serializable{
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public EventUsers getEventUsers() {
+		return eventUsers;
+	}
+
+	public void setEventUsers(EventUsers eventUsers) {
+		this.eventUsers = eventUsers;
 	}
 
 	@Override
