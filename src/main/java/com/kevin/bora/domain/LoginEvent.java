@@ -4,6 +4,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 @Entity
@@ -11,10 +12,11 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 public class LoginEvent extends Login{
 	private static final long serialVersionUID = 1L;
 
-	@OneToOne(mappedBy="mPEvent", cascade=CascadeType.ALL)
+	@OneToOne(mappedBy="loginEvent", cascade=CascadeType.ALL)
 	private Event event;
 	
-	@OneToOne(mappedBy="mPEvent", cascade=CascadeType.ALL)
+	@JsonIgnore
+	@OneToOne(mappedBy="loginEvent", cascade=CascadeType.ALL)
 	private EventUsers eventUsers;
 
 	public LoginEvent() {

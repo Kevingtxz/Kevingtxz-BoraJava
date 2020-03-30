@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kevin.bora.domain.chat.Chat;
 
 @Entity
@@ -21,22 +22,25 @@ public class EventUsers implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
+	@JsonIgnore
 	@OneToOne
-	private LoginEvent mPEvent;
+	private LoginEvent loginEvent;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="eventUsers")
 	private List<EventUser> EventUserList = new ArrayList<>();
 	
+	@JsonIgnore
 	@OneToOne
 	private Chat chatEvent;
 	
 	public EventUsers() {
 	}
 
-	public EventUsers(Integer id, LoginEvent mPEvent, Chat chatEvent) {
+	public EventUsers(Integer id, LoginEvent loginEvent, Chat chatEvent) {
 		super();
 		this.id = id;
-		this.mPEvent = mPEvent;
+		this.loginEvent = loginEvent;
 		this.chatEvent = chatEvent;
 	}
 
@@ -47,13 +51,13 @@ public class EventUsers implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public LoginEvent getMPEvent() {
-		return mPEvent;
+	
+	public LoginEvent getLoginEvent() {
+		return loginEvent;
 	}
 
-	public void setMPEvent(LoginEvent mPEvent) {
-		this.mPEvent = mPEvent;
+	public void setLoginEvent(LoginEvent loginEvent) {
+		this.loginEvent = loginEvent;
 	}
 
 	public List<EventUser> getEventUserList() {
@@ -70,14 +74,6 @@ public class EventUsers implements Serializable {
 
 	public void setChatEvent(Chat chatEvent) {
 		this.chatEvent = chatEvent;
-	}
-
-	public LoginEvent getmPEvent() {
-		return mPEvent;
-	}
-
-	public void setmPEvent(LoginEvent mPEvent) {
-		this.mPEvent = mPEvent;
 	}
 
 	@Override

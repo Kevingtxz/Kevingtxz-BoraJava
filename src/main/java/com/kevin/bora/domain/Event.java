@@ -38,19 +38,19 @@ public class Event implements Serializable {
 	
 	@JsonIgnore
 	@OneToOne
-	private LoginEvent mPEvent;
+	private LoginEvent loginEvent;
 
 	public Event() {
 	}
 
-	public Event(Integer id, String name, String date, Category category, Address address, LoginEvent mPEvent, String email) {
+	public Event(Integer id, String name, String date, Category category, Address address, LoginEvent loginEvent, String email) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.date = date;
 		this.category = category;
 		this.address = address;
-		this.mPEvent = mPEvent;
+		this.loginEvent = loginEvent;
 		this.email = email;
 	}
 
@@ -94,12 +94,12 @@ public class Event implements Serializable {
 		this.address = address;
 	}
 
-	public LoginEvent getmPEvent() {
-		return mPEvent;
+	public LoginEvent getLoginEvent() {
+		return loginEvent;
 	}
 
-	public void setmPEvent(LoginEvent mPEvent) {
-		this.mPEvent = mPEvent;
+	public void setLoginEvent(LoginEvent loginEvent) {
+		this.loginEvent = loginEvent;
 	}
 
 	public String getEmail() {

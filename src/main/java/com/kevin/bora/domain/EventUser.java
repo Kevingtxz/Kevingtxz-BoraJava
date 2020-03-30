@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.kevin.bora.domain.enums.Participation;
 import com.kevin.bora.domain.enums.Permission;
 
@@ -20,9 +21,10 @@ public class EventUser implements Serializable{
 	private Integer id;
 	private Integer permission;
 	private Integer participation;
-	
+
+	@JsonIgnoreProperties("password")
 	@OneToOne
-	private LoginUser mPUser;
+	private LoginUser loginUser;
 	
 	@OneToOne
 	private EventUsers eventUsers;
@@ -31,20 +33,20 @@ public class EventUser implements Serializable{
 		
 	}
 
-	public EventUser(Integer id, Permission permission, Participation participation, LoginUser mPUser) {
+	public EventUser(Integer id, Permission permission, Participation participation, LoginUser loginUser) {
 		super();
 		this.id = id;
 		this.permission = (permission == null) ? Permission.USER.getCod() : permission.getCod();
 		this.participation = (participation == null) ? Participation.NOTHING.getCod() : participation.getCod();
-		this.mPUser = mPUser;
+		this.loginUser = loginUser;
 	}
 	
-	public EventUser(Integer id, LoginUser mPUser, EventUsers eventUsers) {
+	public EventUser(Integer id, LoginUser loginUser, EventUsers eventUsers) {
 		super();
 		this.id = id;
 		this.permission = Permission.USER.getCod();
 		this.participation = Participation.NOTHING.getCod();
-		this.mPUser = mPUser;
+		this.loginUser = loginUser;
 		this.eventUsers = eventUsers;
 	}
 
@@ -72,12 +74,12 @@ public class EventUser implements Serializable{
 		this.participation = participation;
 	}
 
-	public LoginUser getmPUser() {
-		return mPUser;
+	public LoginUser getLoginUser() {
+		return loginUser;
 	}
 
-	public void setmPUser(LoginUser mPUser) {
-		this.mPUser = mPUser;
+	public void setLoginUser(LoginUser loginUser) {
+		this.loginUser = loginUser;
 	}
 
 	@Override
