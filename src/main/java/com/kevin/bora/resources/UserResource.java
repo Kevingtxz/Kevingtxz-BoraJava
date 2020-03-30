@@ -1,6 +1,5 @@
 package com.kevin.bora.resources;
 
-import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,11 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.kevin.bora.domain.User;
 import com.kevin.bora.dto.UserDTO;
-import com.kevin.bora.dto.UserNewDTO;
 import com.kevin.bora.services.UserService;
 
 @RestController
@@ -72,10 +69,4 @@ public class UserResource {
 		obj = service.updateFromDTO(obj, objDto);
 		return ResponseEntity.noContent().build();
 	}	
-
-	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<Void> delete(@PathVariable Integer id){
-		service.delete(id);
-		return ResponseEntity.noContent().build();
-	}
 }

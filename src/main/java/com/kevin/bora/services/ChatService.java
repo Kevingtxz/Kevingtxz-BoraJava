@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.kevin.bora.domain.Chat;
-import com.kevin.bora.domain.MainPage;
-import com.kevin.bora.domain.Message;
+import com.kevin.bora.domain.Login;
+import com.kevin.bora.domain.chat.Chat;
+import com.kevin.bora.domain.chat.Message;
 import com.kevin.bora.dto.ChatDTO;
 import com.kevin.bora.dto.ChatNewDTO;
 import com.kevin.bora.repositories.ChatRepository;
@@ -22,7 +22,7 @@ public class ChatService {
 		@Autowired
 		private ChatRepository repo;
 		@Autowired
-		private MainPageService mainPageService;
+		private LoginService mainPageService;
 		
 		public Chat find( Integer id ) {
 			Optional<Chat> obj = repo.findById(id);
@@ -61,7 +61,7 @@ public class ChatService {
 			return obj;
 		}
 	
-	public Chat findByMainPages(List<MainPage> mainPages) {
+	public Chat findByMainPages(List<Login> mainPages) {
 		List<Chat> chats = repo.findAll();
 		for(int a = 0; a < chats.size(); a++) {
 			if(chats.get(a).getMainPages() == mainPages) {
@@ -70,7 +70,7 @@ public class ChatService {
 		}
 		throw new ObjectNotFoundException("Não existe chat com esses membros");
 	}	
-	public boolean checkMainPagesInChat(List<MainPage> mainPages) {
+	public boolean checkMainPagesInChat(List<Login> mainPages) {
 		List<Chat> chats = repo.findAll();
 		for(int a = 0; a < chats.size(); a++) {
 			if(chats.get(a).getMainPages() == mainPages) {

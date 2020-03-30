@@ -28,7 +28,6 @@ public class User implements Serializable{
 	private String name;
 	private String lastName;
 	private String birth;
-	private String notes;
 	private String gender;	
 	private Integer permission; 
 
@@ -47,12 +46,12 @@ public class User implements Serializable{
 
 	@JsonIgnore
 	@OneToOne
-	private MPUser mPUser;
+	private LoginUser mPUser;
 
 	public User() {
 	}
 	
-	public User(Integer id, String name, String lastName, String birth, String email, String gender, Permission permission, Address address, MPUser mPUser) {
+	public User(Integer id, String name, String lastName, String birth, String email, String gender, Permission permission, Address address, LoginUser mPUser) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -97,14 +96,6 @@ public class User implements Serializable{
 		this.birth = birth;
 	}
 
-	public String getNotes() {
-		return notes;
-	}
-
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
-
 	public String getGender() {
 		return gender;
 	}
@@ -145,11 +136,11 @@ public class User implements Serializable{
 		this.address = address;
 	}
 
-	public MPUser getmPUser() {
+	public LoginUser getmPUser() {
 		return mPUser;
 	}
 
-	public void setmPUser(MPUser mPUser) {
+	public void setmPUser(LoginUser mPUser) {
 		this.mPUser = mPUser;
 	}
 

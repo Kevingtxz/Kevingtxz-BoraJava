@@ -20,8 +20,6 @@ public class UserDTO implements Serializable{
 	@Length(min=5, max=50, message="O tamnho deve ser entre 5 e 30 caracteres")
 	@Email(message="Email inválido")
 	private String email;
-	@Length(max=300, message="O tamnho deve ser entre 0 e 300 caracteres")
-	private String notes;
 	private Integer permission; 
 	private Address address;
 	private EventUsers eventUsers;
@@ -33,7 +31,6 @@ public class UserDTO implements Serializable{
 	public UserDTO(User obj) {
 		this.id = obj.getId();
 		this.email = obj.getEmail();
-		this.notes = obj.getNotes();
 		this.setGender(obj.getGender());
 		this.permission = obj.getPermission();
 		this.address = obj.getAddress();
@@ -53,14 +50,6 @@ public class UserDTO implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getNotes() {
-		return notes;
-	}
-
-	public void setNotes(String notes) {
-		this.notes = notes;
 	}
 
 	public Integer getPermission() {

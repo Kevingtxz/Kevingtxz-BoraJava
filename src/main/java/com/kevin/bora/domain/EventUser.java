@@ -22,7 +22,7 @@ public class EventUser implements Serializable{
 	private Integer participation;
 	
 	@OneToOne
-	private MPUser mPUser;
+	private LoginUser mPUser;
 	
 	@OneToOne
 	private EventUsers eventUsers;
@@ -31,7 +31,7 @@ public class EventUser implements Serializable{
 		
 	}
 
-	public EventUser(Integer id, Permission permission, Participation participation, MPUser mPUser) {
+	public EventUser(Integer id, Permission permission, Participation participation, LoginUser mPUser) {
 		super();
 		this.id = id;
 		this.permission = (permission == null) ? Permission.USER.getCod() : permission.getCod();
@@ -39,7 +39,7 @@ public class EventUser implements Serializable{
 		this.mPUser = mPUser;
 	}
 	
-	public EventUser(Integer id, MPUser mPUser, EventUsers eventUsers) {
+	public EventUser(Integer id, LoginUser mPUser, EventUsers eventUsers) {
 		super();
 		this.id = id;
 		this.permission = Permission.USER.getCod();
@@ -72,11 +72,11 @@ public class EventUser implements Serializable{
 		this.participation = participation;
 	}
 
-	public MPUser getmPUser() {
+	public LoginUser getmPUser() {
 		return mPUser;
 	}
 
-	public void setmPUser(MPUser mPUser) {
+	public void setmPUser(LoginUser mPUser) {
 		this.mPUser = mPUser;
 	}
 

@@ -7,16 +7,16 @@ import org.springframework.stereotype.Service;
 
 import com.kevin.bora.domain.Address;
 import com.kevin.bora.domain.Category;
-import com.kevin.bora.domain.Chat;
 import com.kevin.bora.domain.City;
 import com.kevin.bora.domain.Event;
 import com.kevin.bora.domain.EventUser;
 import com.kevin.bora.domain.EventUsers;
-import com.kevin.bora.domain.MPEvent;
-import com.kevin.bora.domain.MPUser;
+import com.kevin.bora.domain.LoginEvent;
+import com.kevin.bora.domain.LoginUser;
 import com.kevin.bora.domain.Neighborhood;
 import com.kevin.bora.domain.State;
 import com.kevin.bora.domain.User;
+import com.kevin.bora.domain.chat.Chat;
 import com.kevin.bora.domain.enums.Permission;
 import com.kevin.bora.repositories.AddressRepository;
 import com.kevin.bora.repositories.CategoryRepository;
@@ -25,8 +25,8 @@ import com.kevin.bora.repositories.CityRepository;
 import com.kevin.bora.repositories.EventRepository;
 import com.kevin.bora.repositories.EventUserRepository;
 import com.kevin.bora.repositories.EventUsersRepository;
-import com.kevin.bora.repositories.MPEventRepository;
-import com.kevin.bora.repositories.MPUserRepository;
+import com.kevin.bora.repositories.LoginEventRepository;
+import com.kevin.bora.repositories.LoginUserRepository;
 import com.kevin.bora.repositories.NeighborhoodRepository;
 import com.kevin.bora.repositories.StateRepository;
 import com.kevin.bora.repositories.UserRepository;
@@ -54,9 +54,9 @@ public class DBService {
 	@Autowired
 	private ChatRepository chatRepository;
 	@Autowired
-	private MPUserRepository mPUserRepository;
+	private LoginUserRepository mPUserRepository;
 	@Autowired
-	private MPEventRepository mPEventRepository;
+	private LoginEventRepository mPEventRepository;
 	@Autowired
 	private EventUserRepository eventUserRepository;
 	
@@ -80,12 +80,12 @@ public class DBService {
 		Address a3 = new Address(null, "24", "Cinza", n2);
 
 	
-		MPUser mPU1 = new MPUser(null, "Kevingtxz", "sfnkkonfs");
-		MPUser mPU2 = new MPUser(null, "adg", "sfnkkonfs");
-		MPUser mPU3 = new MPUser(null, "gdagdadg", "sfnkkonfs");
-		MPUser mPU4 = new MPUser(null, "gadadg", "sfnkkonfs");
-		MPUser mPU5 = new MPUser(null, "agddggadadg", "sfnkkonfs");
-		MPUser mPU6 = new MPUser(null, "afhafhafhafh", "sfnkkonfs");
+		LoginUser mPU1 = new LoginUser(null, "Kevingtxz", "sfnkkonfs");
+		LoginUser mPU2 = new LoginUser(null, "adg", "sfnkkonfs");
+		LoginUser mPU3 = new LoginUser(null, "gdagdadg", "sfnkkonfs");
+		LoginUser mPU4 = new LoginUser(null, "gadadg", "sfnkkonfs");
+		LoginUser mPU5 = new LoginUser(null, "agddggadadg", "sfnkkonfs");
+		LoginUser mPU6 = new LoginUser(null, "afhafhafhafh", "sfnkkonfs");
 		
 		
 		User u1 = new User(null,  "Kevin", "Gonçalves", "21/10", "kevingtxz@gmail.com", "M", Permission.OWNER, a3, mPU1);
@@ -105,19 +105,19 @@ public class DBService {
 		Category cat6 = new Category(null, "Atividade em grupo");
 
 
-		MPEvent mPE1 = new MPEvent(null, "Voleizin", "fjsojfs");
-		MPEvent mPE2 = new MPEvent(null, "Fut", "fgw");
-		MPEvent mPE3 = new MPEvent(null, "bas", "w,");
-		MPEvent mPE4 = new MPEvent(null, "ad", "fs");
-		MPEvent mPE5 = new MPEvent(null, "qe", "sf");
-		MPEvent mPE6 = new MPEvent(null, "fs", "fs");
+		LoginEvent mPE1 = new LoginEvent(null, "Voleizin", "fjsojfs");
+		LoginEvent mPE2 = new LoginEvent(null, "Fut", "fgw");
+		LoginEvent mPE3 = new LoginEvent(null, "bas", "w,");
+		LoginEvent mPE4 = new LoginEvent(null, "ad", "fs");
+		LoginEvent mPE5 = new LoginEvent(null, "qe", "sf");
+		LoginEvent mPE6 = new LoginEvent(null, "fs", "fs");
 		
-		Event e1 = new Event(null, "Futebol", "24/03/2020", cat1, a1, mPE1);
-		Event e2 = new Event(null, "Vôlei", "21/10/2020", cat1, a2, mPE2);
-		Event e3 = new Event(null, "Boate", "01/01/2020",cat2, a2, mPE3);
-		Event e4 = new Event(null, "Axe", "20/01/2020", cat2, a1, mPE4);
-		Event e5 = new Event(null, "Basquete", "10/03/20", cat1, a1, mPE5);
-		Event e6 = new Event(null, "Caminhada", "10/03/20", cat6, a2, mPE6);
+		Event e1 = new Event(null, "Futebol", "24/03/2020", cat1, a1, mPE1, "fskifsfs");
+		Event e2 = new Event(null, "Vôlei", "21/10/2020", cat1, a2, mPE2, "fskifadfsfs");
+		Event e3 = new Event(null, "Boate", "01/01/2020",cat2, a2, mPE3, "fskifsfs@aafaf");
+		Event e4 = new Event(null, "Axe", "20/01/2020", cat2, a1, mPE4, "fskifs@fs");
+		Event e5 = new Event(null, "Basquete", "10/03/20", cat1, a1, mPE5, "fs@kifsfs");
+		Event e6 = new Event(null, "Caminhada", "10/03/20", cat6, a2, mPE6, "@fskifsfs");
 
 
 		Chat chat1 = new Chat(null);

@@ -8,16 +8,16 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 @Entity
 @JsonTypeName("User")
-public class MPUser extends MainPage {
+public class LoginUser extends Login {
 	private static final long serialVersionUID = 1L;
 
 	@OneToOne(mappedBy="mPUser", cascade=CascadeType.ALL)
 	private User user;
 	
-	public MPUser() {
+	public LoginUser() {
 	}
 	
-	public MPUser(Integer id, String nickName, String password) {
+	public LoginUser(Integer id, String nickName, String password) {
 		super(id, nickName, password);
 	}
 

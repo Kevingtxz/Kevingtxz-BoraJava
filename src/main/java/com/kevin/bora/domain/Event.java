@@ -2,6 +2,7 @@ package com.kevin.bora.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,6 +23,9 @@ public class Event implements Serializable {
 	private String name;
 	private String date;
 
+	@Column(unique=true)
+	private String email;
+
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "category_id")
@@ -34,12 +38,12 @@ public class Event implements Serializable {
 	
 	@JsonIgnore
 	@OneToOne
-	private MPEvent mPEvent;
+	private LoginEvent mPEvent;
 
 	public Event() {
 	}
 
-	public Event(Integer id, String name, String date, Category category, Address address, MPEvent mPEvent) {
+	public Event(Integer id, String name, String date, Category category, Address address, LoginEvent mPEvent, String email) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -47,6 +51,7 @@ public class Event implements Serializable {
 		this.category = category;
 		this.address = address;
 		this.mPEvent = mPEvent;
+		this.email = email;
 	}
 
 	public Integer getId() {
@@ -89,12 +94,20 @@ public class Event implements Serializable {
 		this.address = address;
 	}
 
-	public MPEvent getmPEvent() {
+	public LoginEvent getmPEvent() {
 		return mPEvent;
 	}
 
-	public void setmPEvent(MPEvent mPEvent) {
+	public void setmPEvent(LoginEvent mPEvent) {
 		this.mPEvent = mPEvent;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override

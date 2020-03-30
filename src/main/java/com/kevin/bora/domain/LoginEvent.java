@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 @Entity
 @JsonTypeName("Event")
-public class MPEvent extends MainPage{
+public class LoginEvent extends Login{
 	private static final long serialVersionUID = 1L;
 
 	@OneToOne(mappedBy="mPEvent", cascade=CascadeType.ALL)
@@ -17,10 +17,10 @@ public class MPEvent extends MainPage{
 	@OneToOne(mappedBy="mPEvent", cascade=CascadeType.ALL)
 	private EventUsers eventUsers;
 
-	public MPEvent() {
+	public LoginEvent() {
 	}
 
-	public MPEvent(Integer id, String nickName, String password) {
+	public LoginEvent(Integer id, String nickName, String password) {
 		super(id, nickName, password);
 	}
 

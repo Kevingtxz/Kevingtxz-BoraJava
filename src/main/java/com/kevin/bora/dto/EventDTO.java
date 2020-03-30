@@ -15,6 +15,7 @@ public class EventDTO implements Serializable{
 	private String date;
 	private Category category;
 	private Address address;
+	private String email;
 
 	public EventDTO() {
 	}
@@ -25,6 +26,7 @@ public class EventDTO implements Serializable{
 		this.date = event.getDate();
 		this.address = event.getAddress();
 		this.category = event.getCategory();
+		this.email = event.getEmail();
 	}
 
 	public Integer getId() {
@@ -65,5 +67,13 @@ public class EventDTO implements Serializable{
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

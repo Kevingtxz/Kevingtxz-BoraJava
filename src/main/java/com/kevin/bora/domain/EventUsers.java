@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.kevin.bora.domain.chat.Chat;
+
 @Entity
 public class EventUsers implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -20,7 +22,7 @@ public class EventUsers implements Serializable {
 	private Integer id;
 	
 	@OneToOne
-	private MPEvent mPEvent;
+	private LoginEvent mPEvent;
 	
 	@OneToMany(mappedBy="eventUsers")
 	private List<EventUser> EventUserList = new ArrayList<>();
@@ -31,7 +33,7 @@ public class EventUsers implements Serializable {
 	public EventUsers() {
 	}
 
-	public EventUsers(Integer id, MPEvent mPEvent, Chat chatEvent) {
+	public EventUsers(Integer id, LoginEvent mPEvent, Chat chatEvent) {
 		super();
 		this.id = id;
 		this.mPEvent = mPEvent;
@@ -46,11 +48,11 @@ public class EventUsers implements Serializable {
 		this.id = id;
 	}
 
-	public MPEvent getMPEvent() {
+	public LoginEvent getMPEvent() {
 		return mPEvent;
 	}
 
-	public void setMPEvent(MPEvent mPEvent) {
+	public void setMPEvent(LoginEvent mPEvent) {
 		this.mPEvent = mPEvent;
 	}
 
@@ -70,11 +72,11 @@ public class EventUsers implements Serializable {
 		this.chatEvent = chatEvent;
 	}
 
-	public MPEvent getmPEvent() {
+	public LoginEvent getmPEvent() {
 		return mPEvent;
 	}
 
-	public void setmPEvent(MPEvent mPEvent) {
+	public void setmPEvent(LoginEvent mPEvent) {
 		this.mPEvent = mPEvent;
 	}
 

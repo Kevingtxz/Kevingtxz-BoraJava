@@ -66,7 +66,7 @@ public class EventService {
 	}
 	
 	public Event fromDTO(EventDTO objDto) {
-		return new Event(objDto.getId(), objDto.getName(), objDto.getDate(), objDto.getCategory(), objDto.getAddress(), null);
+		return new Event(objDto.getId(), objDto.getName(), objDto.getDate(), objDto.getCategory(), objDto.getAddress(), null, objDto.getEmail());
 	}
 }
 

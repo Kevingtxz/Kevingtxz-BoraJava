@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
@@ -12,11 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.kevin.bora.domain.User;
 import com.kevin.bora.dto.UserDTO;
-import com.kevin.bora.repositories.AddressRepository;
-import com.kevin.bora.repositories.CityRepository;
-import com.kevin.bora.repositories.NeighborhoodRepository;
 import com.kevin.bora.repositories.UserRepository;
-import com.kevin.bora.services.exceptions.DataIntegrityException;
 import com.kevin.bora.services.exceptions.ObjectNotFoundException;
 
 @Service
@@ -24,13 +19,6 @@ public class UserService {
 
 	@Autowired
 	private UserRepository repo;
-	@Autowired
-	private AddressRepository addressRepository;
-	@Autowired
-	private NeighborhoodRepository neighborhoodRepository;
-	@Autowired
-	private CityRepository cityRepository;
-	
 	
 	public User find( Integer id ) {
 		Optional<User> obj = repo.findById(id);
@@ -41,16 +29,6 @@ public class UserService {
 	public User insert(User obj) {
 		obj.setId(null);
 		return repo.save(obj);
-	}
-	
-	public void delete(Integer id) {
-		find(id);
-		try {
-		repo.deleteById(id);
-		}
-		catch(DataIntegrityViolationException e) {
-			throw new DataIntegrityException("It's impossible to delete a user now");
-		}
 	}
 	
 	public List<User> findAll(){
@@ -68,9 +46,6 @@ public class UserService {
 		}
 		if(objDto.getGender() != null) {
 			obj.setGender(objDto.getGender());
-		}
-		if(objDto.getNotes() != null) {
-			obj.setNotes(objDto.getNotes());
 		}
 		if(objDto.getPermission() != null) {
 			obj.setPermission(objDto.getPermission());

@@ -1,4 +1,4 @@
-package com.kevin.bora.domain;
+package com.kevin.bora.domain.chat;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,6 +12,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.kevin.bora.domain.EventUsers;
+import com.kevin.bora.domain.Login;
+
 @Entity
 public class Chat implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -21,7 +24,7 @@ public class Chat implements Serializable{
 	private Integer id;
 
 	@ManyToMany
-	private List<MainPage> mainPages = new ArrayList<>();
+	private List<Login> mainPages = new ArrayList<>();
 
 	@OneToMany
 	private List<Message> messages = new ArrayList<>();
@@ -37,11 +40,11 @@ public class Chat implements Serializable{
 		this.id = id;
 	}
 
-	public List<MainPage> getMainPages() {
+	public List<Login> getMainPages() {
 		return mainPages;
 	}
 
-	public void setMainPages(List<MainPage> mainPages) {
+	public void setMainPages(List<Login> mainPages) {
 		this.mainPages = mainPages;
 	}
 

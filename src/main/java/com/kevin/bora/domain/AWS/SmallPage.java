@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import com.kevin.bora.domain.MainPage;
+import com.kevin.bora.domain.Login;
 
 @Entity
 public class SmallPage  implements Serializable{
@@ -24,14 +24,14 @@ public class SmallPage  implements Serializable{
 //	private List<Post> posts = new ArrayList<>();
 
 	@ManyToOne
-	private MainPage mainPage;
+	private Login mainPage;
 
 	public SmallPage() {
 	}
 
 	public SmallPage(Integer id, String description, 
 			//Localization location, 
-			MainPage mainPage) {
+			Login mainPage) {
 		super();
 		this.id = id;
 		this.description = description;

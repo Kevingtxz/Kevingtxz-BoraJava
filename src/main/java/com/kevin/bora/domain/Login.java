@@ -2,50 +2,67 @@ package com.kevin.bora.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
-public class Message implements Serializable{
+public class Login  implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private Integer sender_id;
-	private String msg;
 	
-	@JoinColumn(name="chat")
-	@ManyToOne
-	private Chat chat;
+	@Column(unique=true)
+	private String nickName;
+	private String password;
+	private String notes;
 	
-	public Message() {
+	public Login() {
 	}
-	
-	public Message(Integer id, Integer sender_id, String msg) {
+
+	public Login(Integer id, String nickName, String password) {
 		super();
 		this.id = id;
-		this.sender_id = sender_id;
-		this.msg = msg;
+		this.nickName = nickName;
+		this.password = password;
 	}
 
+	public Integer getId() {
+		return id;
+	}
 
-	public Integer getSender_id() {
-		return sender_id;
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	public void setSender_id(Integer sender_id) {
-		this.sender_id = sender_id;
+
+	public String getNickName() {
+		return nickName;
 	}
-	public String getMsg() {
-		return msg;
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
-	public void setMsg(String msg) {
-		this.msg = msg;
+
+	public String getPassword() {
+		return password;
 	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -53,6 +70,7 @@ public class Message implements Serializable{
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -61,7 +79,7 @@ public class Message implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Message other = (Message) obj;
+		Login other = (Login) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
