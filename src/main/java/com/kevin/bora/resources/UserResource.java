@@ -64,7 +64,7 @@ public class UserResource {
 		return ResponseEntity.created(uri).build();
 	}
 */		
-	@Transactional
+	@Transactional	
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<Void> update(@Valid @RequestBody UserDTO objDto, @PathVariable Integer id){
 		User obj = service.find(id);
