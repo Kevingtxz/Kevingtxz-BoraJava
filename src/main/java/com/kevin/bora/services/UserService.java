@@ -10,13 +10,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
-import com.kevin.bora.domain.Address;
-import com.kevin.bora.domain.City;
-import com.kevin.bora.domain.Neighborhood;
 import com.kevin.bora.domain.User;
-import com.kevin.bora.domain.enums.Permission;
 import com.kevin.bora.dto.UserDTO;
-import com.kevin.bora.dto.UserNewDTO;
 import com.kevin.bora.repositories.AddressRepository;
 import com.kevin.bora.repositories.CityRepository;
 import com.kevin.bora.repositories.NeighborhoodRepository;
@@ -66,4 +61,32 @@ public class UserService {
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		return repo.findAll(pageRequest);
 	}
+	
+	public User updateFromDTO(User obj, UserDTO objDto) {
+		if(objDto.getEmail() != null) {
+			obj.setEmail(objDto.getEmail());
+		}
+		if(objDto.getGender() != null) {
+			obj.setGender(objDto.getGender());
+		}
+		if(objDto.getNotes() != null) {
+			obj.setNotes(objDto.getNotes());
+		}
+		if(objDto.getPermission() != null) {
+			obj.setPermission(objDto.getPermission());
+		}
+		return repo.save(obj);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
