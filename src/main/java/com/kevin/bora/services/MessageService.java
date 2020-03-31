@@ -20,6 +20,8 @@ public class MessageService {
 	private MessageRepository repo;
 	@Autowired
 	private ChatRepository chatRepository;
+	@Autowired
+	private ChatService chatService;
 	
 	public Message find( Integer id ) {
 		Optional<Message> obj = repo.findById(id);
@@ -27,10 +29,6 @@ public class MessageService {
 				"Object not find! Id: " + id + ", Type: " + Message.class.getName()));
 	}
 	
-	public Message insert(Message obj) {
-		obj.setId(null);
-		return repo.save(obj);
-	}
 	public void delete(Integer id) {
 		find(id);
 		try {
@@ -41,8 +39,9 @@ public class MessageService {
 		}
 	}
 
-	public Message insert(Chat obj, Integer sender_id, String msg) {
-		Message newMsg = new Message(null, sender_id, msg);
+	public Message insert(Integer chat_id, Integer sender_id, String msg) {
+		Chat obj = chatService.find(chat_id);
+		Message newMsg = new Message(null, sender_id, msg, obj);
 		obj.getMessages().add(newMsg);
 		repo.save(newMsg);
 		chatRepository.save(obj);

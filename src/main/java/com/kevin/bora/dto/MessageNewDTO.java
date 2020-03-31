@@ -1,21 +1,32 @@
 package com.kevin.bora.dto;
 
-import com.kevin.bora.domain.Chat;
+import java.io.Serializable;
 
-public class MessageNewDTO {
+public class MessageNewDTO implements Serializable{
+	private static final long serialVersionUID = 1L;
 
+	private Integer id;
 	private Integer sender_id;
 	private String msg;
-	private Chat chat;
+	private Integer chat_id;
 	
 	public MessageNewDTO() {
 	}
 
-	public MessageNewDTO(Integer sender_id, String msg, Chat chat) {
+	public MessageNewDTO(Integer id, Integer sender_id, String msg, Integer chat_id) {
 		super();
+		this.id = id;
 		this.sender_id = sender_id;
 		this.msg = msg;
-		this.chat = chat;
+		this.chat_id = chat_id;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Integer getSender_id() {
@@ -34,11 +45,11 @@ public class MessageNewDTO {
 		this.msg = msg;
 	}
 
-	public Chat getChat() {
-		return chat;
+	public Integer getChat_id() {
+		return chat_id;
 	}
 
-	public void setChat(Chat chat) {
-		this.chat = chat;
+	public void setChat_id(Integer chat_id) {
+		this.chat_id = chat_id;
 	}
 }

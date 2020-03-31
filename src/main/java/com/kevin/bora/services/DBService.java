@@ -54,9 +54,9 @@ public class DBService {
 	@Autowired
 	private ChatRepository chatRepository;
 	@Autowired
-	private LoginUserRepository mPUserRepository;
+	private LoginUserRepository LoginUserserRepository;
 	@Autowired
-	private LoginEventRepository mPEventRepository;
+	private LoginEventRepository LoginEventventRepository;
 	@Autowired
 	private EventUserRepository eventUserRepository;
 	
@@ -80,20 +80,20 @@ public class DBService {
 		Address a3 = new Address(null, "24", "Cinza", n2);
 
 	
-		LoginUser mPU1 = new LoginUser(null, "Kevingtxz", "sfnkkonfs");
-		LoginUser mPU2 = new LoginUser(null, "adg", "sfnkkonfs");
-		LoginUser mPU3 = new LoginUser(null, "gdagdadg", "sfnkkonfs");
-		LoginUser mPU4 = new LoginUser(null, "gadadg", "sfnkkonfs");
-		LoginUser mPU5 = new LoginUser(null, "agddggadadg", "sfnkkonfs");
-		LoginUser mPU6 = new LoginUser(null, "afhafhafhafh", "sfnkkonfs");
+		LoginUser LoginUser1 = new LoginUser(null, "Kevingtxz", "sfnkkonfs");
+		LoginUser LoginUser2 = new LoginUser(null, "adg", "sfnkkonfs");
+		LoginUser LoginUser3 = new LoginUser(null, "gdagdadg", "sfnkkonfs");
+		LoginUser LoginUser4 = new LoginUser(null, "gadadg", "sfnkkonfs");
+		LoginUser LoginUser5 = new LoginUser(null, "agddggadadg", "sfnkkonfs");
+		LoginUser LoginUser6 = new LoginUser(null, "afhafhafhafh", "sfnkkonfs");
 		
 		
-		User u1 = new User(null,  "Kevin", "Gonçalves", "21/10", "kevingtxz@gmail.com", "M", Permission.OWNER, a3, mPU1);
-		User u2 = new User(null, "Bug", "Mello", "10/2", "melo@hotmail.com", "F", null, a2, mPU2);
-		User u3 = new User(null,"Walter", "Vargas", "25/03", "waltinho@wal.com", "M", Permission.MANAGER, a1, mPU3);
-		User u4 = new User(null, "Fernando", "Rogzar", "31/10", "feZ@yahoo.com", "M", Permission.OWNER, a3, mPU4);
-		User u5 = new User(null, "Rona", "Megalo", "30/2", "rox@hotmail.com", "F", null, a1, mPU5);
-		User u6 = new User(null, "Matheus", "Cordeiro", "29/03", "cord@cod.com", "F", Permission.USER, a2, mPU6);
+		User u1 = new User(null,  "Kevin", "Gonçalves", "21/10", "kevingtxz@gmail.com", "M", Permission.OWNER, a3, LoginUser1);
+		User u2 = new User(null, "Bug", "Mello", "10/2", "melo@hotmail.com", "F", null, a2, LoginUser2);
+		User u3 = new User(null,"Walter", "Vargas", "25/03", "waltinho@wal.com", "M", Permission.MANAGER, a1, LoginUser3);
+		User u4 = new User(null, "Fernando", "Rogzar", "31/10", "feZ@yahoo.com", "M", Permission.OWNER, a3, LoginUser4);
+		User u5 = new User(null, "Rona", "Megalo", "30/2", "rox@hotmail.com", "F", null, a1, LoginUser5);
+		User u6 = new User(null, "Matheus", "Cordeiro", "29/03", "cord@cod.com", "F", Permission.USER, a2, LoginUser6);
 
 		
 		
@@ -105,19 +105,19 @@ public class DBService {
 		Category cat6 = new Category(null, "Atividade em grupo");
 
 
-		LoginEvent mPE1 = new LoginEvent(null, "Voleizin", "fjsojfs");
-		LoginEvent mPE2 = new LoginEvent(null, "Fut", "fgw");
-		LoginEvent mPE3 = new LoginEvent(null, "bas", "w,");
-		LoginEvent mPE4 = new LoginEvent(null, "ad", "fs");
-		LoginEvent mPE5 = new LoginEvent(null, "qe", "sf");
-		LoginEvent mPE6 = new LoginEvent(null, "fs", "fs");
+		LoginEvent LoginEvent1 = new LoginEvent(null, "Voleizin", "fjsojfs");
+		LoginEvent LoginEvent2 = new LoginEvent(null, "Fut", "fgw");
+		LoginEvent LoginEvent3 = new LoginEvent(null, "bas", "w,");
+		LoginEvent LoginEvent4 = new LoginEvent(null, "ad", "fs");
+		LoginEvent LoginEvent5 = new LoginEvent(null, "qe", "sf");
+		LoginEvent LoginEvent6 = new LoginEvent(null, "fs", "fs");
 		
-		Event e1 = new Event(null, "Futebol", "24/03/2020", cat1, a1, mPE1, "fskifsfs");
-		Event e2 = new Event(null, "Vôlei", "21/10/2020", cat1, a2, mPE2, "fskifadfsfs");
-		Event e3 = new Event(null, "Boate", "01/01/2020",cat2, a2, mPE3, "fskifsfs@aafaf");
-		Event e4 = new Event(null, "Axe", "20/01/2020", cat2, a1, mPE4, "fskifs@fs");
-		Event e5 = new Event(null, "Basquete", "10/03/20", cat1, a1, mPE5, "fs@kifsfs");
-		Event e6 = new Event(null, "Caminhada", "10/03/20", cat6, a2, mPE6, "@fskifsfs");
+		Event e1 = new Event(null, "Futebol", "24/03/2020", cat1, a1, LoginEvent1, "fskifsfs");
+		Event e2 = new Event(null, "Vôlei", "21/10/2020", cat1, a2, LoginEvent2, "fskifadfsfs");
+		Event e3 = new Event(null, "Boate", "01/01/2020",cat2, a2, LoginEvent3, "fskifsfs@aafaf");
+		Event e4 = new Event(null, "Axe", "20/01/2020", cat2, a1, LoginEvent4, "fskifs@fs");
+		Event e5 = new Event(null, "Basquete", "10/03/20", cat1, a1, LoginEvent5, "fs@kifsfs");
+		Event e6 = new Event(null, "Caminhada", "10/03/20", cat6, a2, LoginEvent6, "@fskifsfs");
 
 
 		Chat chat1 = new Chat(null);
@@ -139,19 +139,19 @@ public class DBService {
 
 		
 		
-		EventUsers eu1 = new EventUsers(null, mPE1, chat11);
-		EventUsers eu2 = new EventUsers(null, mPE2, chat12);
-		EventUsers eu3 = new EventUsers(null, mPE3, chat13);
-		EventUsers eu4 = new EventUsers(null, mPE4, chat14);
-		EventUsers eu5 = new EventUsers(null, mPE5, chat15);
-		EventUsers eu6 = new EventUsers(null, mPE6, chat16);
+		EventUsers eu1 = new EventUsers(null, LoginEvent1, chat11);
+		EventUsers eu2 = new EventUsers(null, LoginEvent2, chat12);
+		EventUsers eu3 = new EventUsers(null, LoginEvent3, chat13);
+		EventUsers eu4 = new EventUsers(null, LoginEvent4, chat14);
+		EventUsers eu5 = new EventUsers(null, LoginEvent5, chat15);
+		EventUsers eu6 = new EventUsers(null, LoginEvent6, chat16);
 
-		EventUser eU1 = new EventUser(null, mPU1, eu6);
-		EventUser eU2 = new EventUser(null, mPU2, eu2);
-		EventUser eU3 = new EventUser(null, mPU3, eu3);
-		EventUser eU4 = new EventUser(null, mPU4, eu4);
-		EventUser eU5 = new EventUser(null, mPU5, eu5);
-		EventUser eU6 = new EventUser(null, mPU6, eu1);
+		EventUser eU1 = new EventUser(null, LoginUser1, eu6);
+		EventUser eU2 = new EventUser(null, LoginUser2, eu2);
+		EventUser eU3 = new EventUser(null, LoginUser3, eu3);
+		EventUser eU4 = new EventUser(null, LoginUser4, eu4);
+		EventUser eU5 = new EventUser(null, LoginUser5, eu5);
+		EventUser eU6 = new EventUser(null, LoginUser6, eu1);
 		
 		
 		cat1.getEvents().addAll(Arrays.asList(e1,e2));
@@ -175,17 +175,19 @@ public class DBService {
 		eu5.getEventUserList().addAll(Arrays.asList(eU4, eU3));
 		eu6.getEventUserList().addAll(Arrays.asList(eU6));
 
+		chat1.getLogins().addAll(Arrays.asList(LoginUser1, LoginUser2, LoginUser3));
+		
 		stateRepository.saveAll(Arrays.asList(s1, s2, s3));
 		cityRepository.saveAll(Arrays.asList(c1, c2, c3));
 		neighborhoodRepository.saveAll(Arrays.asList(n1, n2, n3));
 		addressRepository.saveAll(Arrays.asList(a1, a2, a3));
 		
 	
-		mPUserRepository.saveAll(Arrays.asList(mPU1, mPU2, mPU3, mPU4, mPU5, mPU6));
+		LoginUserserRepository.saveAll(Arrays.asList(LoginUser1, LoginUser2, LoginUser3, LoginUser4, LoginUser5, LoginUser6));
 		
 		userRepository.saveAll(Arrays.asList(u1, u2, u3, u4, u5, u6));
 		categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6));
-		mPEventRepository.saveAll(Arrays.asList(mPE1, mPE2, mPE3, mPE4, mPE5, mPE6));
+		LoginEventventRepository.saveAll(Arrays.asList(LoginEvent1, LoginEvent2, LoginEvent3, LoginEvent4, LoginEvent5, LoginEvent6));
 		eventRepository.saveAll(Arrays.asList(e1, e2, e3, e4, e5, e6));
 		
 		chatRepository.saveAll(Arrays.asList(chat1, chat2, chat3, chat4, chat5, chat6, chat7, chat8, chat9, chat10, chat11, chat12, chat13, chat14, chat15, chat16));

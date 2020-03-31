@@ -38,7 +38,7 @@ public class MessageResource {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody MessageNewDTO objNewDto){
-		Message obj = service.insert(objNewDto.getChat(), objNewDto.getSender_id(), objNewDto.getMsg());
+		Message obj = service.insert(objNewDto.getChat_id(), objNewDto.getSender_id(), objNewDto.getMsg());
 		URI uri = ServletUriComponentsBuilder.
 				fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();

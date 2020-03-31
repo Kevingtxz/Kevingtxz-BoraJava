@@ -2,11 +2,14 @@ package com.kevin.bora.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Message implements Serializable{
@@ -18,17 +21,19 @@ public class Message implements Serializable{
 	private Integer sender_id;
 	private String msg;
 	
-	@ManyToOne
+	@JsonIgnoreProperties("messages")
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Chat chat;
 	
 	public Message() {
 	}
 	
-	public Message(Integer id, Integer sender_id, String msg) {
+	public Message(Integer id, Integer sender_id, String msg, Chat chat) {
 		super();
 		this.id = id;
 		this.sender_id = sender_id;
 		this.msg = msg;
+		this.chat = chat;
 	}
 	
 	public Integer getId() {
