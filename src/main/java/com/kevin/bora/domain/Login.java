@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Login  implements Serializable{
@@ -20,6 +20,7 @@ public class Login  implements Serializable{
 	
 	@Column(unique=true)
 	private String nickName;
+	@JsonIgnore
 	private String password;
 	private String notes;
 	

@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.kevin.bora.domain.enums.Participation;
 import com.kevin.bora.domain.enums.Permission;
 
@@ -22,7 +21,7 @@ public class EventUser implements Serializable{
 	private Integer permission;
 	private Integer participation;
 
-	@JsonIgnoreProperties("password")
+	
 	@OneToOne
 	private LoginUser loginUser;
 	

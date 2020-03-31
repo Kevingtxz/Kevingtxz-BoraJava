@@ -3,25 +3,26 @@ package com.kevin.bora.dto;
 import com.kevin.bora.domain.EventUsers;
 import com.kevin.bora.domain.LoginUser;
 import com.kevin.bora.domain.enums.Participation;
+import com.kevin.bora.domain.enums.Permission;
 
 public class EventUserNewDTO {
 
 	private Integer id;
-	private Integer permission;
+	private Permission permission;
 	private LoginUser loginUser;
 	private EventUsers eventUsers;
-	private Integer participation;
+	private Participation participation;
 	
 	public EventUserNewDTO() {
 	}
 
-	public EventUserNewDTO(Participation permission, LoginUser loginUser, EventUsers eventUsers, Participation participation) {
+	public EventUserNewDTO(Permission permission, LoginUser loginUser, EventUsers eventUsers, Participation participation) {
 		super();
 		this.id = null;
-		this.permission = permission.getCod();
+		this.permission = permission;
 		this.loginUser = loginUser;
 		this.eventUsers = eventUsers;
-		this.participation = participation.getCod();
+		this.participation = participation;
 	}
 
 	public Integer getId() {
@@ -32,11 +33,11 @@ public class EventUserNewDTO {
 		this.id = id;
 	}
 
-	public Integer getPermission() {
+	public Permission getPermission() {
 		return permission;
 	}
 
-	public void setPermission(Integer permission) {
+	public void setPermission(Permission permission) {
 		this.permission = permission;
 	}
 
@@ -56,11 +57,11 @@ public class EventUserNewDTO {
 		this.eventUsers = eventUsers;
 	}
 
-	public Integer getParticipation() {
+	public Participation getParticipation() {
 		return participation;
 	}
 
-	public void setParticipation(Integer participation) {
+	public void setParticipation(Participation participation) {
 		this.participation = participation;
 	}
 }

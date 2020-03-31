@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 public class LoginEvent extends Login{
 	private static final long serialVersionUID = 1L;
 
+	@JsonIgnore
 	@OneToOne(mappedBy="loginEvent", cascade=CascadeType.ALL)
 	private Event event;
 	

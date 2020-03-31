@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kevin.bora.domain.EventUser;
+import com.kevin.bora.domain.enums.Permission;
 import com.kevin.bora.dto.EventUserDTO;
+import com.kevin.bora.dto.EventUserNewDTO;
 import com.kevin.bora.repositories.EventUserRepository;
 import com.kevin.bora.services.exceptions.ObjectNotFoundException;
 
@@ -52,11 +54,12 @@ public class EventUserService {
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		return repo.findAll(pageRequest);
 	}
-	
-	public EventUser fromDTO(EventUserDTO objDto) {
-		return new EventUser(objDto.getId(), objDto.getName());
-	}
 	*/
+	
+	public EventUser fromDTO(EventUserNewDTO objDto) {
+		return new EventUser(null, objDto.getPermission(), objDto.getParticipation(), objDto.getLoginUser());
+	}
+	
 	public void updataData(EventUser obj, EventUserDTO objDto) {
 		if(objDto.getParticipation() != null) {
 			obj.setParticipation(objDto.getParticipation());

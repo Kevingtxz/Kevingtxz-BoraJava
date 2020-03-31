@@ -4,6 +4,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 @Entity
@@ -11,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 public class LoginUser extends Login {
 	private static final long serialVersionUID = 1L;
 
+	@JsonIgnore
 	@OneToOne(mappedBy="mPUser", cascade=CascadeType.ALL)
 	private User user;
 	
