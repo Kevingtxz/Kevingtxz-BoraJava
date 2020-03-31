@@ -1,13 +1,17 @@
 package com.kevin.bora.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class City implements Serializable{
@@ -16,19 +20,26 @@ public class City implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private String name;
 	
 	@ManyToOne
 	@JoinColumn(name="estado_id")
 	private State state;
 	
+	@OneToMany(mappedBy="city", cascade=CascadeType.ALL)
+	private List<User> users = new ArrayList<>();
+	
+	@OneToMany(mappedBy="city", cascade=CascadeType.ALL)
+	private List<Event> events= new ArrayList<>();
+	
+	@OneToMany(mappedBy="city", cascade=CascadeType.ALL)
+	private List<Neighborhood> neighborhoods= new ArrayList<>();
+
 	public City() {
 	}
-
+	
 	public City(Integer id, String name, State state) {
 		super();
 		this.id = id;
-		this.name = name;
 		this.state = state;
 	}
 
@@ -39,13 +50,29 @@ public class City implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public String getName() {
-		return name;
+	
+	public List<User> getUsers() {
+		return users;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
+	public List<Neighborhood> getNeighborhoods() {
+		return neighborhoods;
+	}
+
+	public void setNeighborhoods(List<Neighborhood> neighborhoods) {
+		this.neighborhoods = neighborhoods;
 	}
 
 	public State getState() {
@@ -55,7 +82,7 @@ public class City implements Serializable{
 	public void setState(State state) {
 		this.state = state;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

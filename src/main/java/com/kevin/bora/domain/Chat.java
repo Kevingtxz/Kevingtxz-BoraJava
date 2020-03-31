@@ -27,7 +27,7 @@ public class Chat implements Serializable{
 	private List<Message> messages = new ArrayList<>();
 	
 	@OneToOne(mappedBy="chatEvent")
-	EventUsers eventUsers;
+	private EventUsers eventUsers;
 	
 	public Chat() {
 	}

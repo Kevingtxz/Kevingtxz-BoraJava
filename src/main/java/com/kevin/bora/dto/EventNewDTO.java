@@ -2,31 +2,30 @@ package com.kevin.bora.dto;
 
 import java.io.Serializable;
 
-import com.kevin.bora.domain.City;
 import com.kevin.bora.domain.Category;
-import com.kevin.bora.domain.Event;
+import com.kevin.bora.domain.LoginEvent;
 
-public class EventDTO implements Serializable{
+public class EventNewDTO  implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-
 	private Integer id;
-	private String name;
-	private String date;
-	private Category category;
-	private City address;
+	private String name; 
+	private String date;  
+	private Category category; 
+	private LoginEvent loginEvent;
 	private String email;
-
-	public EventDTO() {
-	}
 	
-	public EventDTO(Event event) {
-		this.id = event.getId();
-		this.name = event.getName();
-		this.date = event.getDate();
-		this.address = event.getCity();
-		this.category = event.getCategory();
-		this.email = event.getEmail();
+	public EventNewDTO() {
+	}
+
+	public EventNewDTO(Integer id, String name, String date, Category category, LoginEvent loginEvent, String email) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.date = date;
+		this.category = category;
+		this.loginEvent = loginEvent;
+		this.email = email;
 	}
 
 	public Integer getId() {
@@ -61,12 +60,12 @@ public class EventDTO implements Serializable{
 		this.category = category;
 	}
 
-	public City getAddress() {
-		return address;
+	public LoginEvent getLoginEvent() {
+		return loginEvent;
 	}
 
-	public void setAddress(City address) {
-		this.address = address;
+	public void setLoginEvent(LoginEvent loginEvent) {
+		this.loginEvent = loginEvent;
 	}
 
 	public String getEmail() {

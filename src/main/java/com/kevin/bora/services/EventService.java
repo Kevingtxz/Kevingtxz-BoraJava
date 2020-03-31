@@ -59,8 +59,8 @@ public class EventService {
 			newObj.setCategory(obj.getCategory());
 			
 		}
-		if(obj.getAddress() != null) {
-			newObj.setAddress(obj.getAddress());
+		if(obj.getCity() != null) {
+			newObj.setCity(obj.getCity());
 		}
 		return newObj;
 	}

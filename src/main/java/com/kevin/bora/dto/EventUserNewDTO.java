@@ -1,22 +1,26 @@
 package com.kevin.bora.dto;
 
+import java.io.Serializable;
+
 import com.kevin.bora.domain.EventUsers;
 import com.kevin.bora.domain.LoginUser;
 import com.kevin.bora.domain.enums.Participation;
 import com.kevin.bora.domain.enums.Permission;
-
-public class EventUserNewDTO {
+	
+public class EventUserNewDTO implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	private Integer id;
 	private Permission permission;
 	private LoginUser loginUser;
 	private EventUsers eventUsers;
 	private Participation participation;
-	
+
 	public EventUserNewDTO() {
 	}
 
-	public EventUserNewDTO(Permission permission, LoginUser loginUser, EventUsers eventUsers, Participation participation) {
+	public EventUserNewDTO(Permission permission, LoginUser loginUser, EventUsers eventUsers,
+			Participation participation) {
 		super();
 		this.id = null;
 		this.permission = permission;

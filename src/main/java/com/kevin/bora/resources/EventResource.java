@@ -64,16 +64,6 @@ public class EventResource {
 		return ResponseEntity.ok().body(listDto);
 	}
 	*/
-	/*
-	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<Void> insert(@Valid @RequestBody EventDTO objDto){
-		Event obj = service.fromDTO(objDto);
-		obj = service.insert(obj);
-		URI uri = ServletUriComponentsBuilder.
-				fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).build();
-	}
-	*/
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<Void> update(@Valid @RequestBody EventDTO objDto, @PathVariable Integer id){

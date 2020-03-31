@@ -33,8 +33,13 @@ public class Event implements Serializable {
 
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "address_id")
-	private Address address;
+	@JoinColumn(name = "city_id")
+	private City city;
+	
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "neighborhood_id")
+	private Neighborhood neighborhood;
 	
 	@JsonIgnore
 	@OneToOne
@@ -43,13 +48,13 @@ public class Event implements Serializable {
 	public Event() {
 	}
 
-	public Event(Integer id, String name, String date, Category category, Address address, LoginEvent loginEvent, String email) {
+	public Event(Integer id, String name, String date, Category category, City city, LoginEvent loginEvent, String email) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.date = date;
 		this.category = category;
-		this.address = address;
+		this.city = city;
 		this.loginEvent = loginEvent;
 		this.email = email;
 	}
@@ -86,12 +91,12 @@ public class Event implements Serializable {
 		this.category = category;
 	}
 
-	public Address getAddress() {
-		return address;
+	public City getCity() {
+		return city;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setCity(City city) {
+		this.city = city;
 	}
 
 	public LoginEvent getLoginEvent() {
@@ -108,6 +113,14 @@ public class Event implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Neighborhood getNeighborhood() {
+		return neighborhood;
+	}
+
+	public void setNeighborhood(Neighborhood neighborhood) {
+		this.neighborhood = neighborhood;
 	}
 
 	@Override

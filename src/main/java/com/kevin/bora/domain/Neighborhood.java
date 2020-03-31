@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,8 +25,14 @@ public class Neighborhood implements Serializable{
 	private String name;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="neighborhood")
-	private List<Address> addresses = new ArrayList<>();
+	@OneToMany
+	private List<City> addresses = new ArrayList<>();
+	
+	@OneToMany(mappedBy="neighborhood", cascade=CascadeType.ALL)
+	private List<User> users = new ArrayList<>();
+	
+	@OneToMany(mappedBy="neighborhood", cascade=CascadeType.ALL)
+	private List<Event> events= new ArrayList<>();	
 	
 	@ManyToOne
 	@JoinColumn(name="city_id")
@@ -57,11 +64,11 @@ public class Neighborhood implements Serializable{
 		this.name = name;
 	}
 
-	public List<Address> getAddresses() {
+	public List<City> getAddresses() {
 		return addresses;
 	}
 
-	public void setAddresses(List<Address> addresses) {
+	public void setAddresses(List<City> addresses) {
 		this.addresses = addresses;
 	}
 

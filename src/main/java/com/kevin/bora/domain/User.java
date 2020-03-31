@@ -41,17 +41,22 @@ public class User implements Serializable{
 
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name="address_id")
-	private Address address;
+	@JoinColumn(name="city_id")
+	private City city;
 
 	@JsonIgnore
 	@OneToOne
 	private LoginUser mPUser;
+	
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "neighborhood_id")
+	private Neighborhood neighborhood;
 
 	public User() {
 	}
 	
-	public User(Integer id, String name, String lastName, String birth, String email, String gender, Permission permission, Address address, LoginUser mPUser) {
+	public User(Integer id, String name, String lastName, String birth, String email, String gender, Permission permission, City city, LoginUser mPUser) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -60,8 +65,24 @@ public class User implements Serializable{
 		this.email = email;
 		this.gender = gender;
 		this.permission =  (permission==null) ? Permission.USER.getCod() : permission.getCod();
-		this.address = address;
+		this.city = city;
 		this.mPUser = mPUser;
+	}
+
+	public City getCity() {
+		return city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
+	}
+
+	public Neighborhood getNeighborhood() {
+		return neighborhood;
+	}
+
+	public void setNeighborhood(Neighborhood neighborhood) {
+		this.neighborhood = neighborhood;
 	}
 
 	public Integer getId() {
@@ -128,12 +149,12 @@ public class User implements Serializable{
 		this.phones = phones;
 	}
 
-	public Address getAddress() {
-		return address;
+	public City getAddress() {
+		return city;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setAddress(City city) {
+		this.city = city;
 	}
 
 	public LoginUser getmPUser() {
