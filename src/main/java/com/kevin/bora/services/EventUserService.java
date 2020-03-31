@@ -3,13 +3,14 @@ package com.kevin.bora.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.kevin.bora.domain.EventUser;
-import com.kevin.bora.domain.enums.Permission;
 import com.kevin.bora.dto.EventUserDTO;
 import com.kevin.bora.dto.EventUserNewDTO;
 import com.kevin.bora.repositories.EventUserRepository;
+import com.kevin.bora.services.exceptions.DataIntegrityException;
 import com.kevin.bora.services.exceptions.ObjectNotFoundException;
 
 @Service
@@ -34,7 +35,6 @@ public class EventUserService {
 		 updataData(newObj, objDto);
 		return repo.save(newObj);
 	}
-	/*
 	
 	public void delete(Integer id) {
 		find(id);
@@ -45,16 +45,6 @@ public class EventUserService {
 			throw new DataIntegrityException("It's impossible to delete a category with events");
 		}
 	}
-	
-	public List<EventUser> findAll(){
-		return repo.findAll();
-	}
-	
-	public Page<EventUser> findPage(Integer page, Integer linesPerPage, String orderBy, String direction){
-		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
-		return repo.findAll(pageRequest);
-	}
-	*/
 	
 	public EventUser fromDTO(EventUserNewDTO objDto) {
 		return new EventUser(null, objDto.getPermission(), objDto.getParticipation(), objDto.getLoginUser());

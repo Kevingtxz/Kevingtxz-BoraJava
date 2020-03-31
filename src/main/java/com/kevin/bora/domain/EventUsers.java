@@ -12,7 +12,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.kevin.bora.domain.chat.Chat;
 
 @Entity
 public class EventUsers implements Serializable {

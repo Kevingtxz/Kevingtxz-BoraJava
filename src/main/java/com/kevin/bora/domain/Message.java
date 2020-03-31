@@ -1,4 +1,4 @@
-package com.kevin.bora.domain.chat;
+package com.kevin.bora.domain;
 
 import java.io.Serializable;
 
@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -19,7 +18,6 @@ public class Message implements Serializable{
 	private Integer sender_id;
 	private String msg;
 	
-	@JoinColumn(name="chat")
 	@ManyToOne
 	private Chat chat;
 	
@@ -32,7 +30,22 @@ public class Message implements Serializable{
 		this.sender_id = sender_id;
 		this.msg = msg;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Chat getChat() {
+		return chat;
+	}
+
+	public void setChat(Chat chat) {
+		this.chat = chat;
+	}
 
 	public Integer getSender_id() {
 		return sender_id;

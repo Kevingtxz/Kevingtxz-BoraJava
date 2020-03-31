@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.kevin.bora.domain.Address;
 import com.kevin.bora.domain.Category;
+import com.kevin.bora.domain.Chat;
 import com.kevin.bora.domain.City;
 import com.kevin.bora.domain.Event;
 import com.kevin.bora.domain.EventUser;
@@ -16,7 +17,6 @@ import com.kevin.bora.domain.LoginUser;
 import com.kevin.bora.domain.Neighborhood;
 import com.kevin.bora.domain.State;
 import com.kevin.bora.domain.User;
-import com.kevin.bora.domain.chat.Chat;
 import com.kevin.bora.domain.enums.Permission;
 import com.kevin.bora.repositories.AddressRepository;
 import com.kevin.bora.repositories.CategoryRepository;

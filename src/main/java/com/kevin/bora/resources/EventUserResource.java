@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.kevin.bora.domain.EventUser;
+import com.kevin.bora.dto.EventUserDTO;
 import com.kevin.bora.dto.EventUserNewDTO;
 import com.kevin.bora.services.EventUserService;
 
@@ -38,18 +39,16 @@ public class EventUserResource {
 				fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
-	/* 
+	
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<Void> update(@Valid @RequestBody EventUserDTO objDto, @PathVariable Integer id){
 		service.update(objDto, id);
 		return ResponseEntity.noContent().build();
 	}	
-	/*
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id){
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-	*/
 }

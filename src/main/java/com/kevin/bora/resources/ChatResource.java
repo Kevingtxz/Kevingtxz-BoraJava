@@ -1,6 +1,7 @@
 package com.kevin.bora.resources;
 
 public class ChatResource {
+
 	/*
 	@Autowired
 	private ChatService service;
@@ -10,7 +11,6 @@ public class ChatResource {
 		Chat obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
-	
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody ChatNewDTO objNewDto){
 		Chat obj = service.fromDTO(objNewDto);

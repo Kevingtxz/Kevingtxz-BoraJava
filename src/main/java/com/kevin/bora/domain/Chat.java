@@ -1,4 +1,4 @@
-package com.kevin.bora.domain.chat;
+package com.kevin.bora.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -11,9 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
-import com.kevin.bora.domain.EventUsers;
-import com.kevin.bora.domain.Login;
 
 @Entity
 public class Chat implements Serializable{
