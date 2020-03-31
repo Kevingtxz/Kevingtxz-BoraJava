@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class City implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -20,17 +22,21 @@ public class City implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	private String name;
 	
 	@ManyToOne
 	@JoinColumn(name="estado_id")
 	private State state;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="city", cascade=CascadeType.ALL)
 	private List<User> users = new ArrayList<>();
-	
+
+	@JsonIgnore
 	@OneToMany(mappedBy="city", cascade=CascadeType.ALL)
 	private List<Event> events= new ArrayList<>();
-	
+
+	@JsonIgnore
 	@OneToMany(mappedBy="city", cascade=CascadeType.ALL)
 	private List<Neighborhood> neighborhoods= new ArrayList<>();
 
@@ -40,6 +46,7 @@ public class City implements Serializable{
 	public City(Integer id, String name, State state) {
 		super();
 		this.id = id;
+		this.name = name;
 		this.state = state;
 	}
 
@@ -81,6 +88,14 @@ public class City implements Serializable{
 
 	public void setState(State state) {
 		this.state = state;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
