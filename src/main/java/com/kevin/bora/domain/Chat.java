@@ -21,7 +21,7 @@ public class Chat implements Serializable{
 	private Integer id;
 
 	@ManyToMany
-	private List<Login> mainPages = new ArrayList<>();
+	private List<Login> logins = new ArrayList<>();
 
 	@OneToMany
 	private List<Message> messages = new ArrayList<>();
@@ -37,12 +37,12 @@ public class Chat implements Serializable{
 		this.id = id;
 	}
 
-	public List<Login> getMainPages() {
-		return mainPages;
+	public List<Login> getLogins() {
+		return logins;
 	}
 
-	public void setMainPages(List<Login> mainPages) {
-		this.mainPages = mainPages;
+	public void setLogins(List<Login> logins) {
+		this.logins = logins;
 	}
 
 	public List<Message> getMessages() {

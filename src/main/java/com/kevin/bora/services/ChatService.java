@@ -1,6 +1,6 @@
 package com.kevin.bora.services;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.kevin.bora.domain.Chat;
-import com.kevin.bora.domain.Login;
 import com.kevin.bora.dto.ChatNewDTO;
 import com.kevin.bora.repositories.ChatRepository;
 import com.kevin.bora.services.exceptions.DataIntegrityException;
@@ -28,7 +27,7 @@ public class ChatService {
 
 	public Chat insert(ChatNewDTO objNewDto) {
 		Chat newObj = new Chat(null);
-		
+		newObj.getLogins().addAll(Arrays.asList(objNewDto.getLogin1(), objNewDto.getLogin2(), objNewDto.getLogin3(), objNewDto.getLogin4(), objNewDto.getLogin5()));
 		return repo.save(newObj);
 	}
 /*
@@ -46,7 +45,7 @@ public class ChatService {
 			throw new DataIntegrityException("It's impossible to delete a chat with users");
 		}
 	}
-
+/*
 
 	public Chat findByMainPages(List<Login> logins) {
 		List<Chat> chats = repo.findAll();
@@ -67,4 +66,5 @@ public class ChatService {
 		}
 		return false;
 	} 
+	*/
 }
