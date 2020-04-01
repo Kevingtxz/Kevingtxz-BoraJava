@@ -47,7 +47,7 @@ public class EventUserService {
 	}
 	
 	public EventUser fromDTO(EventUserNewDTO objDto) {
-		return new EventUser(null, objDto.getPermission(), objDto.getParticipation(), objDto.getLoginUser());
+		return new EventUser(null, objDto.getPermission(), objDto.getParticipation(), objDto.getUser());
 	}
 	
 	public void updataData(EventUser obj, EventUserDTO objDto) {

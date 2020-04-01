@@ -1,5 +1,6 @@
 package com.kevin.bora.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,16 +53,14 @@ public class UserService {
 		}
 		return repo.save(obj);
 	}
+
+	public List<User> findUsersById(List<Integer> ids){
+		List<User> users = new ArrayList<>();
+		for(int a = 0; a < ids.size(); a++) {
+			if(ids.get(a) != null) {
+				users.add(find(ids.get(a)));
+			}	
+		}
+		return users;
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-

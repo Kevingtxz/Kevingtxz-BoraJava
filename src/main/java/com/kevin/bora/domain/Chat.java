@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Chat implements Serializable{
@@ -21,13 +20,10 @@ public class Chat implements Serializable{
 	private Integer id;
 
 	@ManyToMany
-	private List<Login> logins = new ArrayList<>();
+	private List<User> users = new ArrayList<>();
 
 	@OneToMany
 	private List<Message> messages = new ArrayList<>();
-	
-	@OneToOne(mappedBy="chatEvent")
-	private EventUsers eventUsers;
 	
 	public Chat() {
 	}
@@ -37,12 +33,12 @@ public class Chat implements Serializable{
 		this.id = id;
 	}
 
-	public List<Login> getLogins() {
-		return logins;
+	public List<User> getUsers() {
+		return users;
 	}
 
-	public void setLogins(List<Login> logins) {
-		this.logins = logins;
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
 	public List<Message> getMessages() {
@@ -59,14 +55,6 @@ public class Chat implements Serializable{
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public EventUsers getEventUsers() {
-		return eventUsers;
-	}
-
-	public void setEventUsers(EventUsers eventUsers) {
-		this.eventUsers = eventUsers;
 	}
 
 	@Override

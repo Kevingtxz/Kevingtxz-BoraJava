@@ -2,65 +2,64 @@ package com.kevin.bora.dto;
 
 import java.io.Serializable;
 
-import com.kevin.bora.domain.Login;
-
 public class ChatNewDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
-
-	private Login login1;
-	private Login login2;
-	private Login login3;
-	private Login login4;
-	private Login login5;
+	
+	private Integer user1;
+	private Integer user2;
+	private Integer user3;
+	private Integer user4;
+	private Integer user5;
+	
 	public ChatNewDTO() {
 	}
 
-	public ChatNewDTO(Login login1, Login login2, Login login3, Login login4, Login login5) {
+	public ChatNewDTO(Integer user1, Integer user2, Integer user3, Integer user4, Integer user5) {
 		super();
-		this.login1 = login1;
-		this.login2 = login2;
-		this.login3 = login3;
-		this.login4 = login4;
-		this.login5 = login5;
+		this.user1 = user1;
+		this.user2 = user2;
+		this.user3 = user3;
+		this.user4 = user4;
+		this.user5 = user5;
 	}
 
-	public Login getLogin1() {
-		return login1;
+	public Integer getUserId1() {
+		return user1;
 	}
 
-	public void setLogin1(Login login1) {
-		this.login1 = login1;
+	public void setUserId1(Integer user1) {
+		this.user1 = user1;
 	}
 
-	public Login getLogin2() {
-		return login2;
+	public Integer getUserId2() {
+		return user2;
 	}
 
-	public void setLogin2(Login login2) {
-		this.login2 = login2;
+	public void setUserId2(Integer user2) {
+		this.user2 = user2;
 	}
 
-	public Login getLogin3() {
-		return login3;
+	public Integer getUserId3() {
+		return user3;
 	}
 
-	public void setLogin3(Login login3) {
-		this.login3 = login3;
+	public void setUserId3(Integer user3) {
+		this.user3 = user3;
 	}
 
-	public Login getLogin4() {
-		return login4;
+	public Integer getUserId4() {
+		return user4;
 	}
 
-	public void setLogin4(Login login4) {
-		this.login4 = login4;
+	public void setUserId4(Integer user4) {
+		this.user4 = user4;
 	}
 
-	public Login getLogin5() {
-		return login5;
+	public Integer getUserId5() {
+		return user5;
 	}
 
-	public void setLogin5(Login login5) {
-		this.login5 = login5;
+	public void setUserId5(Integer user5) {
+		this.user5 = user5;
 	}
 }

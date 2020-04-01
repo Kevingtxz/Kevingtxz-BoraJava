@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.kevin.bora.domain.enums.Participation;
@@ -21,31 +22,30 @@ public class EventUser implements Serializable{
 	private Integer permission;
 	private Integer participation;
 
-	
 	@OneToOne
-	private LoginUser loginUser;
+	private User User;
 	
-	@OneToOne
+	@ManyToOne
 	private EventUsers eventUsers;
 	
 	public EventUser() {
 		
 	}
 
-	public EventUser(Integer id, Permission permission, Participation participation, LoginUser loginUser) {
+	public EventUser(Integer id, Permission permission, Participation participation, User User) {
 		super();
 		this.id = id;
 		this.permission = (permission == null) ? Permission.USER.getCod() : permission.getCod();
 		this.participation = (participation == null) ? Participation.NOTHING.getCod() : participation.getCod();
-		this.loginUser = loginUser;
+		this.User = User;
 	}
 	
-	public EventUser(Integer id, LoginUser loginUser, EventUsers eventUsers) {
+	public EventUser(Integer id, User User, EventUsers eventUsers) {
 		super();
 		this.id = id;
 		this.permission = Permission.USER.getCod();
 		this.participation = Participation.NOTHING.getCod();
-		this.loginUser = loginUser;
+		this.User = User;
 		this.eventUsers = eventUsers;
 	}
 
@@ -73,12 +73,12 @@ public class EventUser implements Serializable{
 		this.participation = participation;
 	}
 
-	public LoginUser getLoginUser() {
-		return loginUser;
+	public User getUser() {
+		return User;
 	}
 
-	public void setLoginUser(LoginUser loginUser) {
-		this.loginUser = loginUser;
+	public void setUser(User User) {
+		this.User = User;
 	}
 
 	@Override

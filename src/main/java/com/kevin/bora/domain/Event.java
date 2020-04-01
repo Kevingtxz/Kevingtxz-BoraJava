@@ -20,12 +20,15 @@ public class Event implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String name;
 	private String date;
 
 	@Column(unique=true)
+	private String nickName;
+	@Column(unique=true)
 	private String email;
-
+	@JsonIgnore
+	private String password;
+	
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "category_id")
@@ -41,22 +44,23 @@ public class Event implements Serializable {
 	@JoinColumn(name = "neighborhood_id")
 	private Neighborhood neighborhood;
 	
-	@JsonIgnore
-	@OneToOne
-	private LoginEvent loginEvent;
+	@OneToOne(mappedBy="event")
+	@JoinColumn(name="eventUsers_id")
+	private EventUsers eventUsers;
 
 	public Event() {
 	}
 
-	public Event(Integer id, String name, String date, Category category, City city, LoginEvent loginEvent, String email) {
+	public Event(Integer id, String nickName, String date, Category category, Neighborhood neighborhood, String email, String password) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.nickName = nickName;
 		this.date = date;
 		this.category = category;
-		this.city = city;
-		this.loginEvent = loginEvent;
+		this.city = neighborhood.getCity();
 		this.email = email;
+		this.neighborhood = neighborhood;
+		this.password = password; 
 	}
 
 	public Integer getId() {
@@ -67,12 +71,20 @@ public class Event implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNickName() {
+		return nickName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getDate() {
@@ -99,14 +111,6 @@ public class Event implements Serializable {
 		this.city = city;
 	}
 
-	public LoginEvent getLoginEvent() {
-		return loginEvent;
-	}
-
-	public void setLoginEvent(LoginEvent loginEvent) {
-		this.loginEvent = loginEvent;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -121,6 +125,14 @@ public class Event implements Serializable {
 
 	public void setNeighborhood(Neighborhood neighborhood) {
 		this.neighborhood = neighborhood;
+	}
+
+	public EventUsers getEventUsers() {
+		return eventUsers;
+	}
+
+	public void setEventUsers(EventUsers eventUsers) {
+		this.eventUsers = eventUsers;
 	}
 
 	@Override

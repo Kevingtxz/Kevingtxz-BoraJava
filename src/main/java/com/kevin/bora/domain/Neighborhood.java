@@ -25,9 +25,6 @@ public class Neighborhood implements Serializable{
 	private String name;
 	
 	@JsonIgnore
-	@OneToMany
-	private List<City> addresses = new ArrayList<>();
-	
 	@OneToMany(mappedBy="neighborhood", cascade=CascadeType.ALL)
 	private List<User> users = new ArrayList<>();
 	
@@ -63,21 +60,29 @@ public class Neighborhood implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public List<City> getAddresses() {
-		return addresses;
-	}
-
-	public void setAddresses(List<City> addresses) {
-		this.addresses = addresses;
-	}
-
+	
 	public City getCity() {
 		return city;
 	}
 
 	public void setCity(City city) {
 		this.city = city;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
 	}
 
 	@Override

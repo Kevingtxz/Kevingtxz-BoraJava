@@ -1,29 +1,14 @@
 package com.kevin.bora.domain.AWS;
 
-import java.io.Serializable;
+public class SmallPage  {
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-import com.kevin.bora.domain.Login;
-
-@Entity
-public class SmallPage  implements Serializable{
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String description;
 	
 //	private Localization location;
 //	private List<Photo> photos = new ArrayList<>();
 //	private List<Post> posts = new ArrayList<>();
-
-	@ManyToOne
+/*
 	private Login mainPage;
 
 	public SmallPage() {

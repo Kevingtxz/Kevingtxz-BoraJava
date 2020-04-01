@@ -3,7 +3,7 @@ package com.kevin.bora.dto;
 import java.io.Serializable;
 
 import com.kevin.bora.domain.EventUsers;
-import com.kevin.bora.domain.LoginUser;
+import com.kevin.bora.domain.User;
 import com.kevin.bora.domain.enums.Participation;
 import com.kevin.bora.domain.enums.Permission;
 	
@@ -12,14 +12,14 @@ public class EventUserNewDTO implements Serializable {
 
 	private Integer id;
 	private Permission permission;
-	private LoginUser loginUser;
+	private User loginUser;
 	private EventUsers eventUsers;
 	private Participation participation;
 
 	public EventUserNewDTO() {
 	}
 
-	public EventUserNewDTO(Permission permission, LoginUser loginUser, EventUsers eventUsers,
+	public EventUserNewDTO(Permission permission, User loginUser, EventUsers eventUsers,
 			Participation participation) {
 		super();
 		this.id = null;
@@ -45,11 +45,11 @@ public class EventUserNewDTO implements Serializable {
 		this.permission = permission;
 	}
 
-	public LoginUser getLoginUser() {
+	public User getUser() {
 		return loginUser;
 	}
 
-	public void setLoginUser(LoginUser loginUser) {
+	public void setUser(User loginUser) {
 		this.loginUser = loginUser;
 	}
 

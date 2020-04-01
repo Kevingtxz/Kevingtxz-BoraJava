@@ -13,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kevin.bora.domain.enums.Permission;
@@ -29,10 +28,16 @@ public class User implements Serializable{
 	private String lastName;
 	private String birth;
 	private String gender;	
-	private Integer permission; 
-
+	private Integer permission;
+	private String notes; 
+	
+	@Column(unique=true)
+	private String nickName;
+	
 	@Column(unique=true)
 	private String email;
+	@JsonIgnore
+	private String password;
 	
 	@JsonIgnore
 	@ElementCollection
@@ -43,10 +48,6 @@ public class User implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="city_id")
 	private City city;
-
-	@JsonIgnore
-	@OneToOne
-	private LoginUser mPUser;
 	
 	@JsonIgnore
 	@ManyToOne
@@ -55,18 +56,22 @@ public class User implements Serializable{
 
 	public User() {
 	}
-	
-	public User(Integer id, String name, String lastName, String birth, String email, String gender, Permission permission, City city, LoginUser mPUser) {
+
+	public User(Integer id, String name, String lastName, String birth, String gender, Permission permission, String notes,
+			String nickName, String email, String password, Neighborhood neighborhood) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.lastName = lastName;
 		this.birth = birth;
-		this.email = email;
 		this.gender = gender;
-		this.permission =  (permission==null) ? Permission.USER.getCod() : permission.getCod();
-		this.city = city;
-		this.mPUser = mPUser;
+		this.permission = (permission == null) ? null : permission.getCod();
+		this.notes = notes;
+		this.nickName = nickName;
+		this.email = email;
+		this.password = password;
+		this.city = neighborhood.getCity();
+		this.neighborhood = neighborhood;
 	}
 
 	public City getCity() {
@@ -157,12 +162,28 @@ public class User implements Serializable{
 		this.city = city;
 	}
 
-	public LoginUser getmPUser() {
-		return mPUser;
+	public String getNotes() {
+		return notes;
 	}
 
-	public void setmPUser(LoginUser mPUser) {
-		this.mPUser = mPUser;
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override

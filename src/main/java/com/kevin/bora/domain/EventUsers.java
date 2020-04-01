@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,24 +24,28 @@ public class EventUsers implements Serializable {
 	
 	@JsonIgnore
 	@OneToOne
-	private LoginEvent loginEvent;
+	private Event event;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="eventUsers")
+	@OneToMany(mappedBy="eventUsers", cascade=CascadeType.ALL)
 	private List<EventUser> EventUserList = new ArrayList<>();
-	
+
 	@JsonIgnore
 	@OneToOne
-	private Chat chatEvent;
+	private Chat chat;
 	
 	public EventUsers() {
 	}
 
-	public EventUsers(Integer id, LoginEvent loginEvent, Chat chatEvent) {
+	public EventUsers(Integer id, Event event, Chat chat) {
 		super();
 		this.id = id;
-		this.loginEvent = loginEvent;
-		this.chatEvent = chatEvent;
+		this.chat = chat;
+		this.event = event;
+	}
+
+	public void setChat(Chat chat) {
+		this.chat = chat;
 	}
 
 	public Integer getId() {
@@ -51,12 +56,12 @@ public class EventUsers implements Serializable {
 		this.id = id;
 	}
 	
-	public LoginEvent getLoginEvent() {
-		return loginEvent;
+	public Event getEvent() {
+		return event;
 	}
 
-	public void setLoginEvent(LoginEvent loginEvent) {
-		this.loginEvent = loginEvent;
+	public void setEvent(Event event) {
+		this.event = event;
 	}
 
 	public List<EventUser> getEventUserList() {
@@ -67,12 +72,12 @@ public class EventUsers implements Serializable {
 		EventUserList = eventUserList;
 	}
 
-	public Chat getChatEvent() {
-		return chatEvent;
+	public Chat getChat() {
+		return chat;
 	}
 
-	public void setChatEvent(Chat chatEvent) {
-		this.chatEvent = chatEvent;
+	public void setChatEvent(Chat chat) {
+		this.chat= chat;
 	}
 
 	@Override
