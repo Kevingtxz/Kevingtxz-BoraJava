@@ -11,7 +11,9 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.kevin.bora.domain.User;
+import com.kevin.bora.domain.enums.Permission;
 import com.kevin.bora.dto.UserDTO;
+import com.kevin.bora.dto.UserNewDTO;
 import com.kevin.bora.repositories.UserRepository;
 import com.kevin.bora.services.exceptions.ObjectNotFoundException;
 
@@ -20,6 +22,8 @@ public class UserService {
 
 	@Autowired
 	private UserRepository repo;
+	@Autowired
+	private NeighborhoodService neighborhoodService;
 	
 	public User find( Integer id ) {
 		Optional<User> obj = repo.findById(id);
@@ -62,5 +66,9 @@ public class UserService {
 			}	
 		}
 		return users;
+	}
+	
+	public User fromNewDTO(UserNewDTO objNewDto) {
+		return new User(null, objNewDto.getName(), objNewDto.getLastName(), objNewDto.getBirth(), objNewDto.getGender(), Permission.toEnum(objNewDto.getPermissionId()), null, objNewDto.getNickName(), objNewDto.getEmail(), objNewDto.getPassword(), neighborhoodService.find(objNewDto.getNeighborhoodId()));
 	}
 }

@@ -2,6 +2,7 @@ package com.kevin.bora.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,7 +45,7 @@ public class Event implements Serializable {
 	@JoinColumn(name = "neighborhood_id")
 	private Neighborhood neighborhood;
 	
-	@OneToOne(mappedBy="event")
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="eventUsers_id")
 	private EventUsers eventUsers;
 

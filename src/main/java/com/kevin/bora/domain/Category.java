@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,7 @@ public class Category implements Serializable{
 	private Integer id;
 	private String name;
 	
-	@OneToMany(mappedBy="category")
+	@OneToMany(mappedBy="category", cascade=CascadeType.ALL)
 	private List<Event> events = new ArrayList<>();
 	
 	public Category() {

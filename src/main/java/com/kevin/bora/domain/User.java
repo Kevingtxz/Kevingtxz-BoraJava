@@ -1,12 +1,8 @@
 package com.kevin.bora.domain;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,11 +34,6 @@ public class User implements Serializable{
 	private String email;
 	@JsonIgnore
 	private String password;
-	
-	@JsonIgnore
-	@ElementCollection
-	@CollectionTable(name="Phones")
-	private Set<String> phones = new HashSet<>();
 
 	@JsonIgnore
 	@ManyToOne
@@ -65,28 +56,12 @@ public class User implements Serializable{
 		this.lastName = lastName;
 		this.birth = birth;
 		this.gender = gender;
-		this.permission = (permission == null) ? null : permission.getCod();
+		this.permission = (permission == null) ? Permission.USER.getCod() : permission.getCod();
 		this.notes = notes;
 		this.nickName = nickName;
 		this.email = email;
 		this.password = password;
 		this.city = neighborhood.getCity();
-		this.neighborhood = neighborhood;
-	}
-
-	public City getCity() {
-		return city;
-	}
-
-	public void setCity(City city) {
-		this.city = city;
-	}
-
-	public Neighborhood getNeighborhood() {
-		return neighborhood;
-	}
-
-	public void setNeighborhood(Neighborhood neighborhood) {
 		this.neighborhood = neighborhood;
 	}
 
@@ -145,23 +120,7 @@ public class User implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public Set<String> getPhones() {
-		return phones;
-	}
-
-	public void setPhones(Set<String> phones) {
-		this.phones = phones;
-	}
-
-	public City getAddress() {
-		return city;
-	}
-
-	public void setAddress(City city) {
-		this.city = city;
-	}
-
+	
 	public String getNotes() {
 		return notes;
 	}
@@ -184,6 +143,22 @@ public class User implements Serializable{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public City getCity() {
+		return city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
+	}
+
+	public Neighborhood getNeighborhood() {
+		return neighborhood;
+	}
+
+	public void setNeighborhood(Neighborhood neighborhood) {
+		this.neighborhood = neighborhood;
 	}
 
 	@Override

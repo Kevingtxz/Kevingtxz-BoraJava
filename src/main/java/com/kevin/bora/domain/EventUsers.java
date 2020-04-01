@@ -23,7 +23,7 @@ public class EventUsers implements Serializable {
 	private Integer id;
 	
 	@JsonIgnore
-	@OneToOne
+	@OneToOne(mappedBy="eventUsers")
 	private Event event;
 	
 	@JsonIgnore

@@ -6,8 +6,8 @@ import javax.validation.constraints.Email;
 
 import org.hibernate.validator.constraints.Length;
 
-import com.kevin.bora.domain.City;
 import com.kevin.bora.domain.EventUsers;
+import com.kevin.bora.domain.Neighborhood;
 import com.kevin.bora.domain.User;
 import com.kevin.bora.services.validation.UserUpdate;
 
@@ -21,7 +21,7 @@ public class UserDTO implements Serializable{
 	@Email(message="Email inválido")
 	private String email;
 	private Integer permission; 
-	private City address;
+	private Neighborhood neighborhood;
 	private EventUsers eventUsers;
 	private String gender;
 
@@ -33,7 +33,7 @@ public class UserDTO implements Serializable{
 		this.email = obj.getEmail();
 		this.setGender(obj.getGender());
 		this.permission = obj.getPermission();
-		this.address = obj.getAddress();
+		this.neighborhood = obj.getNeighborhood();
 	}
 
 	public Integer getId() {
@@ -60,12 +60,12 @@ public class UserDTO implements Serializable{
 		this.permission = permission;
 	}
 
-	public City getAddress() {
-		return address;
+	public Neighborhood getNeighborhood() {
+		return neighborhood;
 	}
 
-	public void setAddress(City address) {
-		this.address = address;
+	public void setNeighborhood(Neighborhood neighborhood) {
+		this.neighborhood = neighborhood;
 	}
 
 	public EventUsers getEventUsers() {

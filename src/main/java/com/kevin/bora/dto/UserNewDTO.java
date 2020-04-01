@@ -12,7 +12,7 @@ public class UserNewDTO implements Serializable{
 	
 	@NotEmpty
 	@Length(min=5, max=50, message="O tamnho deve ser entre 5 e 50 caracteres")
-	private String userName;
+	private String nickName;
 	
 	@Length(min=5, max=20, message="O tamnho deve ser entre 5 e 20 caracteres")
 	@NotEmpty
@@ -35,44 +35,51 @@ public class UserNewDTO implements Serializable{
 	@Length(min=8, max=255, message="O tamnho deve ser entre 8 e 255 caracteres")
 	private String password;
 	
-	@NotEmpty
-	@Length(max=300, message="O tamnho deve ser entre 0 e 300 caracteres")
-	private String notes;
-	
 	@Length(max=1, message="O tamnho deve ser entre 0 e 1 caracteres")
 	private String gender;
 	
-	@Length(max=10, message="O tamnho deve ser entre 0 e 10 caracteres")
-	@NotEmpty
-	private String number;
-	
-	private String complement;
-	
-	@NotEmpty
 	private Integer neighborhoodId;
 	
-	@NotEmpty
-	private String neighborhood;
-
-	@NotEmpty
-	private Integer cityId;
-	
-	@NotEmpty
-	private Integer addressId;
-	
-	@NotEmpty
-	private String phone1;
-	private String phone2;
+	private Integer permissionId;
 	
 	public UserNewDTO() {
 	}
 
-	public String getUserName() {
-		return userName;
+	public UserNewDTO(
+			@NotEmpty @Length(min = 5, max = 50, message = "O tamnho deve ser entre 5 e 50 caracteres") String nickName,
+			@Length(min = 5, max = 20, message = "O tamnho deve ser entre 5 e 20 caracteres") @NotEmpty String name,
+			@Length(min = 5, max = 50, message = "O tamnho deve ser entre 5 e 50 caracteres") @NotEmpty String lastName,
+			@NotEmpty @Length(min = 6, max = 6, message = "A data não está como o esperado") String birth,
+			@NotEmpty @Length(min = 5, max = 50, message = "O tamnho deve ser entre 5 e 30 caracteres") @Email(message = "Email inválido") String email,
+			@NotEmpty @Length(min = 8, max = 255, message = "O tamnho deve ser entre 8 e 255 caracteres") String password,
+			@Length(max = 1, message = "O tamnho deve ser entre 0 e 1 caracteres") String gender,
+			@NotEmpty Integer neighborhoodId, Integer permissionId) {
+		super();
+		this.nickName = nickName;
+		this.name = name;
+		this.lastName = lastName;
+		this.birth = birth;
+		this.email = email;
+		this.password = password;
+		this.gender = gender;
+		this.neighborhoodId = neighborhoodId;
+		this.permissionId = permissionId;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public Integer getPermissionId() {
+		return permissionId;
+	}
+
+	public void setPermissionId(Integer permissionId) {
+		this.permissionId = permissionId;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 
 	public String getName() {
@@ -115,14 +122,6 @@ public class UserNewDTO implements Serializable{
 		this.password = password;
 	}
 
-	public String getNotes() {
-		return notes;
-	}
-
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
-
 	public String getGender() {
 		return gender;
 	}
@@ -130,23 +129,7 @@ public class UserNewDTO implements Serializable{
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
-	public String getNumber() {
-		return number;
-	}
-
-	public void setNumber(String number) {
-		this.number = number;
-	}
-
-	public String getComplement() {
-		return complement;
-	}
-
-	public void setComplement(String complement) {
-		this.complement = complement;
-	}
-
+	
 	public Integer getNeighborhoodId() {
 		return neighborhoodId;
 	}
@@ -154,44 +137,4 @@ public class UserNewDTO implements Serializable{
 	public void setNeighborhoodId(Integer neighborhoodId) {
 		this.neighborhoodId = neighborhoodId;
 	}
-
-	public Integer getAddressId() {
-		return addressId;
-	}
-
-	public void setAddressId(Integer addressId) {
-		this.addressId = addressId;
-	}
-
-	public String getPhone1() {
-		return phone1;
-	}
-
-	public void setPhone1(String phone1) {
-		this.phone1 = phone1;
-	}
-
-	public String getPhone2() {
-		return phone2;
-	}
-
-	public void setPhone2(String phone2) {
-		this.phone2 = phone2;
-	}
-
-	public String getNeighborhood() {
-		return neighborhood;
-	}
-
-	public void setNeighborhood(String neighborhood) {
-		this.neighborhood = neighborhood;
-	}
-
-	public Integer getCityId() {
-		return cityId;
-	}
-
-	public void setCityId(Integer cityId) {
-		this.cityId = cityId;
-	}	
 }
