@@ -1,8 +1,5 @@
 package com.kevin.bora.services;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +7,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.kevin.bora.domain.Chat;
+import com.kevin.bora.domain.User;
 import com.kevin.bora.dto.ChatDTO;
 import com.kevin.bora.dto.ChatNewDTO;
 import com.kevin.bora.repositories.ChatRepository;
@@ -32,19 +30,30 @@ public class ChatService {
 
 	public Chat insert(ChatNewDTO objDto) {
 		Chat newObj = new Chat(null);
-		List<Integer> listId = new ArrayList<>();
-		listId.addAll(Arrays.asList(objDto.getUserId1(), objDto.getUserId2(), objDto.getUserId3(), objDto.getUserId4(), objDto.getUserId5()));
-		newObj.getUsers().addAll(userService.findUsersById(listId));
+		newObj.getUsers().add(userService.find(objDto.getUserId1()));
+		newObj.getUsers().add(userService.find(objDto.getUserId2()));
+		if(objDto.getUserId3() != null) {
+			newObj.getUsers().add(userService.find(objDto.getUserId3()));
+		}
+		if(objDto.getUserId4() != null) {
+			newObj.getUsers().add(userService.find(objDto.getUserId4()));
+		}
+		if(objDto.getUserId5() != null) {
+			newObj.getUsers().add(userService.find(objDto.getUserId5()));
+		}		
 		return repo.save(newObj);
 	}
 
 	public Chat update(Integer id, ChatDTO objDto) {
 		Chat obj = find(id);
-		if(objDto.isPost()) {
-			obj.getUsers().add(userService.find(objDto.getUserId1()));
-		}else {
-			obj.getUsers().remove(userService.find(objDto.getUserId1()));
+		User user = userService.find(objDto.getUserId1());
+		for(int a = 0; a < obj.getUsers().size(); a++) {
+			if(user == obj.getUsers().get(a)) {
+				obj.getUsers().remove(a);
+				return repo.save(obj);
+			}
 		}
+		obj.getUsers().add(user);
 		return repo.save(obj);
 	}
 

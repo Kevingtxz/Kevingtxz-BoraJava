@@ -24,16 +24,26 @@ public class UserDTO implements Serializable{
 	private Neighborhood neighborhood;
 	private EventUsers eventUsers;
 	private String gender;
+	private String nickName;
 
 	public UserDTO() {
 	}
 
 	public UserDTO(User obj) {
+		this.nickName = obj.getNickName();
 		this.id = obj.getId();
 		this.email = obj.getEmail();
 		this.setGender(obj.getGender());
 		this.permission = obj.getPermission();
 		this.neighborhood = obj.getNeighborhood();
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 
 	public Integer getId() {

@@ -20,11 +20,11 @@ public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	private Integer permission;
 	private String name;
 	private String lastName;
 	private String birth;
 	private String gender;	
-	private Integer permission;
 	private String notes; 
 	
 	@Column(unique=true)

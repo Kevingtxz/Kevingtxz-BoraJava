@@ -2,34 +2,24 @@ package com.kevin.bora.dto;
 
 import java.io.Serializable;
 
-public class ChatDTO  implements Serializable{
+public class ChatDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private Integer user1;
-	private boolean isPost;
+	private Integer userId1;
 	
 	public ChatDTO() {
 	}
 
-	public ChatDTO(Integer user1, boolean isPost) {
+	public ChatDTO(Integer userId1) {
 		super();
-		this.user1 = user1;
-		this.isPost = isPost;
+		this.userId1 = userId1;
 	}
 
 	public Integer getUserId1() {
-		return user1;
+		return userId1;
 	}
 
-	public void setUserId1(Integer user1) {
-		this.user1 = user1;
-	}
-
-	public boolean isPost() {
-		return isPost;
-	}
-
-	public void setPost(boolean isPost) {
-		this.isPost = isPost;
+	public void setUserId1(Integer userId1) {
+		this.userId1 = userId1;
 	}
 }

@@ -51,13 +51,6 @@ public class EventService {
 		return repo.findAll(pageRequest);
 	}
 	
-		/*
-	public Page<Event> search(String name, Integer categoryId, Integer page, Integer linesPerPage, String orderBy, String direction){
-		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
-		return repo.findDistinctByNameContainingAndCategoriasIn(name, categoryId, pageRequest);
-	}
-	*/
-	
 	public Event insert(EventDTO objDto) {
 		Neighborhood neighborhood = neighborhoodService.find(objDto.getNeighborhoodId());
 		Category category = categoryService.find(objDto.getCategoryId());
