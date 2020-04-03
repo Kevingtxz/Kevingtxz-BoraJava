@@ -7,6 +7,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.kevin.bora.domain.EventUser;
+import com.kevin.bora.domain.enums.Participation;
+import com.kevin.bora.domain.enums.Permission;
 import com.kevin.bora.dto.EventUserDTO;
 import com.kevin.bora.dto.EventUserNewDTO;
 import com.kevin.bora.repositories.EventUserRepository;
@@ -47,7 +49,7 @@ public class EventUserService {
 	}
 	
 	public EventUser fromDTO(EventUserNewDTO objDto) {
-		return new EventUser(null, objDto.getPermission(), objDto.getParticipation(), objDto.getUser());
+		return new EventUser(null, Permission.toEnum(objDto.getPermissionId()), Participation.toEnum(objDto.getParticipationId()), objDto.getUser());
 	}
 	
 	public void updataData(EventUser obj, EventUserDTO objDto) {

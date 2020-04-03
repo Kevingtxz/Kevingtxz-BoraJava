@@ -17,13 +17,15 @@ public class UserDTO implements Serializable{
 
 	private Integer id;
 	
-	@Length(min=5, max=50, message="O tamnho deve ser entre 5 e 30 caracteres")
+	@Length(min=5, max=50, message="O tamnho deve ser entre 5 e 50 caracteres")
 	@Email(message="Email inválido")
 	private String email;
 	private Integer permission; 
 	private Neighborhood neighborhood;
 	private EventUsers eventUsers;
+	@Length(min=1, max=1, message="O tamnho deve ser 1 caracter")
 	private String gender;
+	@Length(min=5, max=50, message="O tamnho deve ser entre 5 e 50 caracteres")
 	private String nickName;
 
 	public UserDTO() {

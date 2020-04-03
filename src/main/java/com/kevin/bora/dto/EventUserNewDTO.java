@@ -2,47 +2,30 @@ package com.kevin.bora.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.kevin.bora.domain.EventUsers;
 import com.kevin.bora.domain.User;
-import com.kevin.bora.domain.enums.Participation;
-import com.kevin.bora.domain.enums.Permission;
 	
 public class EventUserNewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private Integer id;
-	private Permission permission;
+	private Integer permissionId;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private User loginUser;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private EventUsers eventUsers;
-	private Participation participation;
+	private Integer participationId;
 
 	public EventUserNewDTO() {
 	}
 
-	public EventUserNewDTO(Permission permission, User loginUser, EventUsers eventUsers,
-			Participation participation) {
-		super();
-		this.id = null;
-		this.permission = permission;
+	public User getLoginUser() {
+		return loginUser;
+	}
+
+	public void setLoginUser(User loginUser) {
 		this.loginUser = loginUser;
-		this.eventUsers = eventUsers;
-		this.participation = participation;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Permission getPermission() {
-		return permission;
-	}
-
-	public void setPermission(Permission permission) {
-		this.permission = permission;
 	}
 
 	public User getUser() {
@@ -61,11 +44,19 @@ public class EventUserNewDTO implements Serializable {
 		this.eventUsers = eventUsers;
 	}
 
-	public Participation getParticipation() {
-		return participation;
+	public Integer getPermissionId() {
+		return permissionId;
 	}
 
-	public void setParticipation(Participation participation) {
-		this.participation = participation;
+	public void setPermissionId(Integer permissionId) {
+		this.permissionId = permissionId;
+	}
+
+	public Integer getParticipationId() {
+		return participationId;
+	}
+
+	public void setParticipationId(Integer participationId) {
+		this.participationId = participationId;
 	}
 }

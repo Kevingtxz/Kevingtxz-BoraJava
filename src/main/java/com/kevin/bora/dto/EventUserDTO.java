@@ -1,33 +1,26 @@
 package com.kevin.bora.dto;
 
-import com.kevin.bora.domain.enums.Participation;
-
 public class EventUserDTO {
 
-	private Integer permission;
-	private Integer participation;
+	private Integer permissionId;
+	private Integer participationId;
 	
 	public EventUserDTO() {
 	}
-
-	public EventUserDTO(Participation permission, Participation participation) {
-		super();
-		this.permission = permission.getCod();
-		this.participation = participation.getCod();
-	}
+	
 	public Integer getPermission() {
-		return permission;
+		return permissionId;
 	}
 
-	public void setPermission(Integer permission) {
-		this.permission = permission;
+	public void setPermission(Integer permissionId) {
+		this.permissionId = permissionId;
 	}
 
 	public Integer getParticipation() {
-		return participation;
+		return participationId;
 	}
 
-	public void setParticipation(Integer participation) {
-		this.participation = participation;
+	public void setParticipation(Integer participationId) {
+		this.participationId = participationId;
 	}
 }

@@ -23,7 +23,7 @@ public class EventUsers implements Serializable {
 	private Integer id;
 	
 	@JsonIgnore
-	@OneToOne(mappedBy="eventUsers")
+	@OneToOne
 	private Event event;
 	
 	@JsonIgnore
@@ -40,8 +40,8 @@ public class EventUsers implements Serializable {
 	public EventUsers(Integer id, Event event, Chat chat) {
 		super();
 		this.id = id;
-		this.chat = chat;
 		this.event = event;
+		this.chat = chat;
 	}
 
 	public void setChat(Chat chat) {

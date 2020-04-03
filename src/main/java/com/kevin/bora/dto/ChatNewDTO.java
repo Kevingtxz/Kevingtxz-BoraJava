@@ -2,25 +2,20 @@ package com.kevin.bora.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+
 public class ChatNewDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	@NotEmpty(message="Preenchimento obrigatório")
 	private Integer userId1;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private Integer userId2;
 	private Integer userId3;
 	private Integer userId4;
 	private Integer userId5;
 	
 	public ChatNewDTO() {
-	}
-
-	public ChatNewDTO(Integer userId1, Integer userId2, Integer userId3, Integer userId4, Integer userId5) {
-		super();
-		this.userId1 = userId1;
-		this.userId2 = userId2;
-		this.userId3 = userId3;
-		this.userId4 = userId4;
-		this.userId5 = userId5;
 	}
 
 	public Integer getUserId1() {

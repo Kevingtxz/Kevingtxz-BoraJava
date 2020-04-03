@@ -111,7 +111,8 @@ public class DBService {
 		EventUsers eu1 = new EventUsers(null, e1, chat7);
 		EventUsers eu2 = new EventUsers(null, e2, chat8);
 		EventUsers eu3 = new EventUsers(null, e3, chat9);
-
+		
+		
 		EventUser eU1 = new EventUser(null, u2, eu1);
 		EventUser eU2 = new EventUser(null, u3, eu2);
 		EventUser eU3 = new EventUser(null, u1, eu3);

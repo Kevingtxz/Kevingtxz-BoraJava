@@ -2,17 +2,15 @@ package com.kevin.bora.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+
 public class CityDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String name;
 	
 	public CityDTO() {
-	}
-
-	public CityDTO(String name) {
-		super();
-		this.name = name;
 	}
 
 	public String getName() {

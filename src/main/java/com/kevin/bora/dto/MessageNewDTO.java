@@ -2,31 +2,19 @@ package com.kevin.bora.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+
 public class MessageNewDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-	private Integer id;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private Integer sender_id;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String msg;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private Integer chat_id;
 	
 	public MessageNewDTO() {
-	}
-
-	public MessageNewDTO(Integer id, Integer sender_id, String msg, Integer chat_id) {
-		super();
-		this.id = id;
-		this.sender_id = sender_id;
-		this.msg = msg;
-		this.chat_id = chat_id;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public Integer getSender_id() {

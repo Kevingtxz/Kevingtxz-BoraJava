@@ -2,37 +2,37 @@ package com.kevin.bora.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
 import com.kevin.bora.domain.Event;
 
 public class EventDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-
 	private Integer id;
+	@NotEmpty(message="Preenchimento obrigatório")
+	@Length(min=5, max=50, message="O tamanho deve ser entre 5 e 30 caracteres")
 	private String nickName;
+	@NotEmpty(message="Preenchimento obrigatório")
+	@Length(min=6, max=6, message="O tamanho deve ser 6 caracteres")
 	private String date;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private Integer categoryId;
+	@NotEmpty(message="Preenchimento obrigatório")
+	@Email(message="Email inválido")
 	private String email;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private Integer neighborhoodId;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String password;
 	private Integer cityId;
-	
 
 	public EventDTO() {
 	}
-	
-	public EventDTO(Integer id, String nickName, String date, Integer categoryId, String email,
-			Integer neighborhoodId, String password) {
-		super();
-		this.id = id;
-		this.nickName = nickName;
-		this.date = date;
-		this.categoryId = categoryId;
-		this.email = email;
-		this.neighborhoodId = neighborhoodId;
-		this.password = password;
-	}
-	
+
 	public EventDTO(Event event) {
 		super();
 		this.id = event.getId();
