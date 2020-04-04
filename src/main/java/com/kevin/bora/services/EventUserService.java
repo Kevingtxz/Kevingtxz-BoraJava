@@ -12,6 +12,7 @@ import com.kevin.bora.domain.enums.Permission;
 import com.kevin.bora.dto.EventUserDTO;
 import com.kevin.bora.dto.EventUserNewDTO;
 import com.kevin.bora.repositories.EventUserRepository;
+import com.kevin.bora.repositories.NotificationRepository;
 import com.kevin.bora.services.exceptions.DataIntegrityException;
 import com.kevin.bora.services.exceptions.ObjectNotFoundException;
 
@@ -20,6 +21,8 @@ public class EventUserService {
 
 	@Autowired
 	private EventUserRepository repo;
+	@Autowired
+	private NotificationRepository notificationRepository;
 	
 	public EventUser find( Integer id ) {
 		Optional<EventUser> obj = repo.findById(id);
@@ -29,6 +32,10 @@ public class EventUserService {
 	
 	public EventUser insert(EventUser obj) {
 		obj.setId(null);
+		/*
+		Notification notification = new Notification(null, "Novo seguidor", obj.getUser().getNickName() + " agora segue a sua página", false, //event);
+		notificationRepository.save(notification);
+		*/
 		return repo.save(obj);
 	}
 
