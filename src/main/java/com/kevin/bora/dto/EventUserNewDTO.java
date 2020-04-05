@@ -2,46 +2,35 @@ package com.kevin.bora.dto;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotEmpty;
-
-import com.kevin.bora.domain.EventUsers;
-import com.kevin.bora.domain.User;
+import com.sun.istack.NotNull;
 	
 public class EventUserNewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Integer permissionId;
-	@NotEmpty(message="Preenchimento obrigatório")
-	private User loginUser;
-	@NotEmpty(message="Preenchimento obrigatório")
-	private EventUsers eventUsers;
+	@NotNull
+	private Integer userId;
+	@NotNull
+	private Integer eventUsersId;
 	private Integer participationId;
 
 	public EventUserNewDTO() {
 	}
 
-	public User getLoginUser() {
-		return loginUser;
+	public Integer getUserId() {
+		return userId;
 	}
 
-	public void setLoginUser(User loginUser) {
-		this.loginUser = loginUser;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
-	public User getUser() {
-		return loginUser;
+	public Integer getEventUsersId() {
+		return eventUsersId;
 	}
 
-	public void setUser(User loginUser) {
-		this.loginUser = loginUser;
-	}
-
-	public EventUsers getEventUsers() {
-		return eventUsers;
-	}
-
-	public void setEventUsers(EventUsers eventUsers) {
-		this.eventUsers = eventUsers;
+	public void setEventUsersId(Integer eventUsersId) {
+		this.eventUsersId = eventUsersId;
 	}
 
 	public Integer getPermissionId() {

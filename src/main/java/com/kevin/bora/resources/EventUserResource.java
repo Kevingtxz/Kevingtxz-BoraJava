@@ -35,7 +35,8 @@ public class EventUserResource {
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody EventUserNewDTO objNewDto){
 		EventUser obj = service.fromDTO(objNewDto);
-		obj = service.insert(obj);
+		obj = service.insert(obj, objNewDto
+				);
 		URI uri = ServletUriComponentsBuilder.
 				fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
