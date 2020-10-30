@@ -1,6 +1,7 @@
 # Kevingtxz-BoraJava
 
-BoraJava is a Rest API for my project Bora, it was made with Java and Spring.
+Bora is a platform to find events in the user city, 
+BoraJava is the Backend version with Java.
 
 # Tools that I used
 
