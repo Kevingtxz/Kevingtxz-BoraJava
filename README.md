@@ -1,8 +1,7 @@
 # Kevingtxz-BoraJava
 
-BoraJava is the complete Rest API of my project Bora with Java Spring. It's a complex project with MVC pattern and a lot of data 
-relationship (many to many, many to one...), it also contains a simple chat.
+BoraJava is a Rest API for my project Bora, it was made with Java and Spring.
 
-# What have I learned?
+# Tools that I used
 
-MySql, Sql, database relationship, simple chat, MVC pattern, Java With Spring and Hibernate
+MySql, Sql, Java With Spring and Hibernate
