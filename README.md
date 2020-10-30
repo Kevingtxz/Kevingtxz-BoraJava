@@ -1,7 +1,6 @@
 # BoraJava
 
-Bora is a platform to find events in the user city,                                                                                                                                
-BoraJava is the Backend version with Java.
+BoraJava is the Backend version with Java for Bora, which is a platform to find events in the user city.
 
 # How to Run it
 
