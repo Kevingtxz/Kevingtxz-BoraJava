@@ -21,6 +21,4 @@ database or you can change to MySQL, which is pre-instaled
 
 Java With Spring and Hibernate, Spring Boot, MySql, Sql, STS, H2, Postman.
 
-![](Java2.png)
-
 ![](Java3.png)
