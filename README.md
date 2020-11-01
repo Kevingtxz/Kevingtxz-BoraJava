@@ -2,9 +2,11 @@
 
 # BoraJava
 
+## Description
+
 BoraJava is the Backend version with Java for Bora, which is a platform to find events in the user city.
 
-# How to Run it
+## How to Run it
 
 To run it you will need to have Java 8 installed and SpringToolSuite on your computer,
 you can download Java on Oracle site and SpringToolSuite on https://spring.io/tools
@@ -15,7 +17,7 @@ database or you can change to MySQL, which is pre-instaled
 
 ![](Java.png)
 
-# Tools that I used
+## Technologies
 
 Java With Spring and Hibernate, Spring Boot, MySql, Sql, STS, H2, Postman.
 
