@@ -1,4 +1,4 @@
-![](Java4.png)
+![](logo.png)
 
 # BoraJava
 
@@ -21,4 +21,4 @@ database or you can change to MySQL, which is pre-instaled
 
 Java With Spring and Hibernate, Spring Boot, MySql, Sql, STS, H2, Postman.
 
-![](Java3.png)
+![](Java4.png)
