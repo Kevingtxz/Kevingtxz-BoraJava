@@ -4,7 +4,7 @@
 
 ## Description
 
-BoraJava is the Backend version with Java for Bora, which is a platform to find events in the user city.
+Bora is a platform to find atividades like football, volleyball, party and others around your city.
 
 ## How to Run it
 
