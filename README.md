@@ -22,3 +22,6 @@ database or you can change to MySQL, which is pre-instaled
 Java With Spring and Hibernate, Spring Boot, MySql, Sql, STS, H2, Postman.
 
 ![](Java4.png)
+
+## License
+[GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
