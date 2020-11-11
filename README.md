@@ -4,7 +4,7 @@
 
 ## Description
 
-Bora is a platform to find atividades like football, volleyball, party and others around your city.
+Bora is a platform to find activities like football, volleyball, party, and others around your city.
 
 ## How to Run it
 
